@@ -8,8 +8,8 @@ function App() {
   return (
     <>
       <div className="w-full h-full fixed bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] bg-repeat bg-[length:128px] rounded-none opacity-[0.075] absolute"></div>
-      <div className='bg-sky-800 blur-[100px] size-[250px] sm:size-[400px] rounded-full -left-20 -top-20 fixed z-10'></div>
-      <div className='bg-sky-800 blur-[100px] size-[250px] sm:size-[400px] rounded-full -right-20 -bottom-20 fixed z-10'></div>
+      <div className='bg-sky-800/40 blur-[100px] size-[250px] sm:size-[400px] rounded-full -left-20 -top-20 fixed z-10'></div>
+      <div className='bg-sky-800/40 blur-[100px] size-[250px] sm:size-[400px] rounded-full -right-20 -bottom-20 fixed z-10'></div>
       <main className='flex flex-col gap-2 h-svh relative z-20 py-5 px-8'>
         {/* <Scene /> */}
         <header className="flex justify-end w-full p-3 mx-auto">
