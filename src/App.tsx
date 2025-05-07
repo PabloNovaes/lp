@@ -29,10 +29,10 @@ function App() {
             </motion.div>
           </AnimatePresence>
           <div className="grid gap-2">
-            <TextAnimate delay={.4} className='text-center font-medium text-[34px] leading-[32px] sm:text-5xl sm:leading-[44px] tracking-[-1px] max-w-[680px]' animation="blurInUp" by="character" once>
+            <TextAnimate delay={.4} className='text-center font-medium text-[34px] leading-[32px] sm:text-5xl sm:leading-[44px] tracking-[-1px] max-w-[680px]' animation="blurInUp" by="word" once>
               Assistenza Tecnica, Riparazioni e Soluzioni Digitali a Milano
             </TextAnimate>
-            <TextAnimate delay={.6} className='text-center text-zinc-300 text-md  sm:text-xl sm:leading-[56px] tracking-[-1px] max-w-[680px]' animation="blurInUp" by="character" once>
+            <TextAnimate delay={.6} className='text-center text-zinc-300 text-md  sm:text-xl sm:leading-[56px] tracking-[-1px] max-w-[680px]' animation="blurInUp" by="word" once>
               Siamo al tuo fianco per ogni esigenza informatica, a casa o in azienda.
             </TextAnimate>
           </div>
