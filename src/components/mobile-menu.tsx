@@ -84,7 +84,7 @@ export function MobileMenu() {
                 <motion.div id="mobile-menu" className="menu w-full bg-background absolute -z-10 left-0 top-0 h-0 opacity-0">
                     <div className="relative h-full bg-gray-950">
                         <div className="w-full h-full bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] bg-repeat bg-[length:128px] rounded-none opacity-[0.075] absolute" />
-                        <nav style={{ height: "calc(100% - 50px)" }} className="flex-col pt-[50px] flex  pl-10 h-nav gap-4 font-medium uppercase text-4xl relative text-primary min-[500px]:overflow-hidden">
+                        <nav style={{ height: "calc(100% - 50px)" }} className="flex-col pt-[70px] flex  pl-10 h-nav gap-4 font-medium uppercase text-4xl relative text-primary min-[500px]:overflow-hidden">
                             {nav_links.map(({ href, label }) => (
                                 <motion.span className="animate-span text-white" onClick={() => setIsMenuOpen(false)}>
                                     <a href={href}>{label}</a>
