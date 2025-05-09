@@ -1,19 +1,20 @@
-import Logo from "@/assets/logo.svg";
-import { InstagramLogo, WhatsappLogo } from "@phosphor-icons/react";
+// import Logo from "@/assets/logo.svg";
+import logo from "@/assets/logo.svg";
+import mockup from "@/assets/mockup.svg";
+import { Package, Star } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import { BentoCard, BentoGrid } from "./components/magicui/bento-grid";
-import { InteractiveHoverButton } from "./components/magicui/interactive-hover-button";
-import { TextAnimate } from './components/magicui/text-animate';
-import { MobileMenu } from "./components/mobile-menu";
-import { Dialog, DialogContent, DialogTrigger } from "./components/ui/dialog";
-import { Drawer, DrawerContent, DrawerTrigger } from "./components/ui/drawer";
-import { useMediaQuery } from "./hooks/use-media-query";
+import { defaultItemAnimationVariants, TextAnimate } from './components/magicui/text-animate';
+import { HeaderMenu } from "./components/mobile-menu";
 import { cn } from "./lib/utils";
 
 import browsers from "@/assets/browsers.svg";
 import currency from "@/assets/currency.svg";
 import gear from "@/assets/gear.svg";
+import { ContactButton } from "./components/contact-button";
 import { Footer } from "./components/footer";
+import { AnimatedGridPattern } from "./components/magicui/animated-grid-pattern";
+import { nav_links } from "./constants";
 
 const features = [
   {
@@ -46,153 +47,155 @@ const features = [
   },
 ];
 
+const MotionText = ({ children, className, delay = 0.6 }: { children: string, className?: string, delay?: number }) => (
+  <TextAnimate
+    className={cn('text-gray-300/90 text-sm font-normal sm:text-lg tracking-[-1px] max-w-[680px]', className)}
+    animation="blurInUp"
+    delay={delay}
+    by="word"
+    as={'h3'}
+    once>
+    {children}
+  </TextAnimate>
+)
+
 function App() {
-  const isMobile = useMediaQuery("(max-width: 500px)")
-
-  const Container = isMobile ? Drawer : Dialog
-  const Trigger = isMobile ? DrawerTrigger : DialogTrigger
-  const Content = isMobile ? DrawerContent : DialogContent
-
   return (
     <>
       <div className="fixed w-full h-full m-auto inset-0 blur-[100px]">
         <div className=" mx-auto w-full bg-black h-full fixed left-0 top-0 [transform:scale(.8)]">
-          <div className="blob"></div>
+          <div className="blob rounded-full" />
         </div>
       </div>
       <div className="w-full h-screen fixed left-0 bottom-0 bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] bg-repeat bg-[length:128px] rounded-none opacity-[0.09]"></div>
-      {/* <div className='bg-sky-800/40 blur-[100px] size-[250px] sm:size-[400px] rounded-full -left-20 -top-20 fixed z-10'></div>
-      <div className='bg-sky-800/40 blur-[100px] size-[250px] sm:size-[400px] rounded-full -right-20 -bottom-20 fixed z-10'></div> */}
-      <main className='flex flex-col gap-2 relative z-20'>
-        {/* <Scene /> */}
-        <MobileMenu />
+      <AnimatedGridPattern
+        numSquares={30}
+        maxOpacity={0.1}
+        duration={3}
+        repeatDelay={1}
+        className={cn("hidden",
+          "fixed [mask-image:radial-gradient(220px_circle_at_center,white,transparent)] sm:[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
+          "mx-auto inset-y-[34%] sm:inset-y-[10%] skew-y-12 size-[400px] sm:size-[700px]",
+        )} />
 
-        <section id="hero" className='flex flex-col items-center justify-center gap-10 mx-auto text-white relative sm:px-20 h-svh'>
-          {/* <AnimatedGridPattern
-            numSquares={30}
-            maxOpacity={0.1}
-            duration={3}
-            repeatDelay={1}
-            className={cn(
-              "fixed [mask-image:radial-gradient(220px_circle_at_center,white,transparent)] sm:[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
-              "mx-auto inset-y-[34%] sm:inset-y-[10%] skew-y-12 size-[400px] sm:size-[700px]",
-            )} /> */}
+      <ContactButton />
+      <main className='flex flex-col relative z-20'>
+        {/* <Scene /> */}
+        <HeaderMenu navLinks={nav_links} />
+
+        <section id="hero" className='flex flex-col items-center justify-end gap-10 mx-auto text-white relative sm:px-20 h-svh'>
           <AnimatePresence>
+            <div className="grid gap-4">
+              {/* <motion.div
+                initial={{ filter: "blur(10px)", y: 100, scale: .7, opacity: 0 }}
+                animate={{ filter: "blur(0)", y: 0, scale: 1, opacity: 1 }}
+                transition={{ delay: .2, duration: .4 }}
+                className="size-20 grid place-content-center relative">
+                <img src={Logo} className="w-full object-cover relative z-10" />
+                <img src={Logo} className="w-full object-cover blur-lg scale-150 absolute opacity-50 z-0 dark:opacity-30 animate-pulse transition-all" />
+              </motion.div> */}
+              <div className="grid gap-2 text-center px-8">
+                <div className="mx-auto mb-2">
+                  <img src={logo} className="h-8 mx-auto" alt="" />
+                </div>
+                <TextAnimate
+                  className='font-medium text-[34px] leading-[32px] sm:text-4xl sm:leading-[38px] lg:text-5xl lg:leading-[44px] tracking-[-1px] max-w-[680px] [&_span]:bg-gradient-to-b from-neutral-400 to-black'
+                  animation="blurInUp"
+                  delay={.4}
+                  as={"h1"}
+                  by="word"
+                  once>
+                  Assistenza Tecnica, Riparazioni e Soluzioni Digitali a Milano
+                </TextAnimate>
+                <TextAnimate
+                  className='text-zinc-300 text-md lg:text-xl lg:leading-[20px] tracking-[-1px] max-w-[680px]'
+                  animation="blurInUp"
+                  delay={.6}
+                  by="word"
+                  once>
+                  Siamo al tuo fianco per ogni esigenza informatica, a casa o in azienda.
+                </TextAnimate>
+              </div>
+            </div>
             <motion.div
-              initial={{ filter: "blur(10px)", y: 100, scale: .7, opacity: 0 }}
-              animate={{ filter: "blur(0)", y: 0, scale: 1, opacity: 1 }}
-              transition={{ delay: .2, duration: .4 }}
-              className="size-20 grid place-content-center relative">
-              <img src={Logo} className="w-full object-cover relative z-10" />
-              <img src={Logo} className="w-full object-cover blur-lg scale-150 absolute opacity-50 z-0 dark:opacity-30 animate-pulse transition-all" />
+              variants={defaultItemAnimationVariants.blurInUp.container}
+              className="flex justify-center items-end"
+              style={{
+              }}>
+              <motion.img
+                src={mockup}
+                variants={defaultItemAnimationVariants.blurInUp.item}
+                initial={"hidden"}
+                animate={"show"}
+                style={{
+                  maskImage: "linear-gradient(to bottom,rgb(0, 0, 0) 50%,rgba(255, 255, 255, 0))"
+                }}
+                className="relative pl-[24px] max-[500px]:max-h-[350px]" alt="" />
             </motion.div>
-            <div className="grid gap-2 px-8">
+          </AnimatePresence>
+        </section>
+        <div className="w-full max-w-5xl h-px mx-auto" style={{ backgroundImage: "linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255, 255, 255, 0.3) 50%,rgba(255,255,255,0) 100%)" }} />
+        <section id="services" className="relative min-h-svh mx-auto pt-8 sm:pt-0  grid px-8 border-t border-ring/10 rounded-2xl pb-10">
+          <div className="flex flex-col justify-center max-w-5xl gap-8 mx-auto">
+            <div className="flex flex-col gap-4 justify-between max-w-3xl">
+              <div className="flex w-fit rounded-full items-center gap-1.5 p-1 px-1.5 bg-preset uppercase text-xs">
+                <Package weight="fill" size={16} /> servizi
+              </div>
               <TextAnimate
-                className='text-center font-medium text-[34px] leading-[32px] sm:text-5xl sm:leading-[44px] tracking-[-1px] max-w-[680px] [&_span]:bg-gradient-to-b from-neutral-400 to-black'
+                className='text-3xl font-medium text-gray-100 max-w-[660px] text-[26px] leading-[32px] sm:text-5xl sm:leading-[44px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black'
                 animation="blurInUp"
-                delay={.4}
-                as={"h1"}
+                as={"h3"}
+                delay={.3}
                 by="word"
                 once>
-                Assistenza Tecnica, Riparazioni e Soluzioni Digitali a Milano
+                Soluzioni complete per la manutenzione IT: scopri i nostri servizi!
               </TextAnimate>
               <TextAnimate
-                className='text-center text-zinc-300 text-md  sm:text-xl sm:leading-[56px] tracking-[-1px] max-w-[680px]'
+                className='text-gray-300/90 text-sm font-normal sm:text-lg tracking-[-1px] max-w-[680px]'
                 animation="blurInUp"
                 delay={.6}
                 by="word"
+                as={'h3'}
                 once>
-                Siamo al tuo fianco per ogni esigenza informatica, a casa o in azienda.
+                Offriamo supporto, manutenzione, formattazione, aggiornamenti e sicurezza. Garantisci le prestazioni dei tuoi sistemi, evitando tempi di inattività. Affidati a noi per la cura del tuo IT.
               </TextAnimate>
-              <motion.div
-                initial={{ filter: "blur(100px)", y: 20, scale: .2, opacity: 0 }}
-                animate={{ filter: "blur(0)", y: 0, scale: 1, opacity: 1 }}
-                transition={{ delay: .6, duration: .4 }}
-                className="mt-4 flex items-center justify-center gap-4 pl-4 p-2 w-fit mx-auto rounded-full">
-
-                <Container>
-                  <Trigger>
-                    <InteractiveHoverButton className="bg-gradient-to-b from-[#2645c1] to-[#0f297c] shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.2)] border-0 font-normal hover:text-black">
-                      Mettersi in contatto
-                    </InteractiveHoverButton>
-                  </Trigger>
-                  <Content className="text-white bg-gray-900 border-ring/30 px-3">
-                    <ul className="py-3 grid gap-2">
-                      <li className="flex items-center gap-2 rounded-xl p-2 font-light justify-center bg-gray-800 text-sm">
-                        <WhatsappLogo weight="light" size={28} /> Tramite WhatsApp
-                      </li>
-                      <li className="flex items-center gap-3 rounded-xl p-2 font-light justify-center bg-gray-800 text-sm">
-                        <InstagramLogo weight="light" size={28} /> Tramite Instagram
-                      </li>
-                    </ul>
-                  </Content>
-                </Container>
-
-              </motion.div>
             </div>
-          </AnimatePresence>
+            <BentoGrid className="lg:grid-cols-3">
+              {features.map(({ className, ...rest }) => (
+                <BentoCard key={rest.name} {...rest} className={cn("bg-black/20 backdrop-blur-3xl border border-ring/20 [&_h3]:text-white [&_p]:text-white/70 rounded-4xl", className)} />
+              ))}
+            </BentoGrid>
+          </div>
         </section>
-        <section id="services" className="rounded-2xl flex flex-col items-center justify-center min-h-svh max-w-5xl mx-auto px-8 pb-8 gap-8">
-          <div className="flex flex-col gap-4 text-center justify-between items-center max-w-3xl">
+        <div className="w-full max-w-5xl h-px mx-auto" style={{ backgroundImage: "linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255, 255, 255, 0.3) 50%,rgba(255,255,255,0) 100%)" }} />
+        <section id="about" className="h-svh flex items-center mx-auto pt-0 w-[90%] border-t border-ring/10 rounded-2xl">
+          <div className="flex flex-col  max-w-5xl gap-8 mx-auto">
+            <div className="flex w-fit rounded-full items-center gap-1 p-1 px-1.5 uppercase text-xs bg-preset">
+              <Star weight="fill" size={14} /> chi siamo
+            </div>
             <TextAnimate
-              className='text-3xl font-medium text-gray-100 max-w-[600px] text-center text-[34px] leading-[32px] sm:text-5xl sm:leading-[44px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black'
+              className='text-3xl font-medium text-gray-100 max-w-[660px] text-[26px] leading-[32px] sm:text-5xl sm:leading-[44px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black'
               animation="blurInUp"
               as={"h3"}
               delay={.3}
               by="word"
               once>
-              Soluzioni complete per la manutenzione IT: scopri i nostri servizi!
+              Scopri di più su chi siamo
             </TextAnimate>
-            <TextAnimate
-              className='text-center text-gray-300/90 text-md font-normal sm:text-xl tracking-[-1px] max-w-[680px]'
-              animation="blurInUp"
-              delay={.6}
-              by="word"
-              as={'h3'}
-              once>
-              Offriamo supporto, manutenzione, formattazione, aggiornamenti e sicurezza. Garantisci le prestazioni dei tuoi sistemi, evitando tempi di inattività. Affidati a noi per la cura del tuo IT.
-            </TextAnimate>
+            <div className="grid sm:grid-cols-2 text-start gap-4 sm:gap-2">
+              <MotionText className="text-md" delay={.4}>
+                Fast Riparazione Pc nasce con l’obiettivo di offrire riparazione PC e assistenza a domicilio su tutto il territorio di Milano, sia a privati che ad aziende.
+              </MotionText>
+              <MotionText className="text-md" delay={.8}>
+                Vantiamo un’esperienza di ben 7 anni e disponiamo dei migliori tecnici informatici specializzati, che svolgono un’eccellente assistenza direttamente a domicilio.
+              </MotionText>
+              <MotionText className="text-md" delay={1.2}>
+                Offriamo un servizio a 360°, con un ottimo rapporto qualità-prezzo.
+                Lavoriamo con tutte le marche e i modelli disponibili sul mercato, svolgendo assistenza e riparazione hardware e software, sia per Computer che per Mac, sempre a domicilio.
+              </MotionText>
+            </div>
           </div>
-          <BentoGrid className="lg:grid-cols-3">
-            {features.map(({ className, ...rest }) => (
-              <BentoCard key={rest.name} {...rest} className={cn("bg-black/20 backdrop-blur-3xl border border-ring/20 [&_h3]:text-white [&_p]:text-white/70 rounded-4xl", className)} />
-            ))}
-          </BentoGrid>
-          {/* <div className="bg-[#fff] flex flex-col items-start justify-start relative rounded-b-2xl">
-
-            <div className="absolute bg-[#fff] w-10 sm:w-80 h-[44px] -top-[42px] right-0 rounded-tr-2xl" />
-            <img src={top_right} className="absolute -top-[42px] right-9 sm:right-80 h-[44px]" />
-
-            <div className="absolute bg-[#fff] w-10 sm:w-80 h-[44px] -top-[42px] left-0 rounded-tl-2xl" />
-            <img src={top_left} className="absolute -top-[42px] left-9 sm:left-80 h-[44px]" />
-
-          </div> */}
         </section>
-        {/* Dock */}
-        {/* <TooltipProvider>
-          <div className="fixed bottom-8 justify-center w-full left-0 hidden sm:flex">
-            <Dock direction="middle" className="bg-gray-900/60 border-ring/20">
-              {nav_links.map(({ label, href, ...rest }) => (
-                <DockIcon key={label}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <a
-                        href={href}
-                        aria-label={label}
-                        className="rounded-full p-4 transition-all hover:bg-gray-500/30"
-                      >
-                        <rest.icon className="size-5" />
-                      </a>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{label}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </DockIcon>
-              ))}
-            </Dock>
-          </div>
-        </TooltipProvider> */}
         <Footer />
       </main >
     </>

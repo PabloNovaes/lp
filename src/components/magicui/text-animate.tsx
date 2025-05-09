@@ -97,7 +97,8 @@ const defaultItemVariants: Variants = {
   },
 };
 
-const defaultItemAnimationVariants: Record<
+// eslint-disable-next-line react-refresh/only-export-components
+export const defaultItemAnimationVariants: Record<
   AnimationVariant,
   { container: Variants; item: Variants }
 > = {

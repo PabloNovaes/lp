@@ -67,7 +67,7 @@ const BentoCard = ({
   ...props
 }: BentoCardProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, amount: .4 });
 
   return (
     <motion.div
@@ -90,7 +90,7 @@ const BentoCard = ({
         {imageIcon && (
           <div className="size-12 grid place-content-center relative mb-3">
             <img src={imageIcon || "/placeholder.svg"} alt="" className="w-full object-cover relative z-10" />
-            <img src={imageIcon || "/placeholder.svg"} alt="" className="w-full object-cover blur-lg scale-125 absolute opacity-80 z-0 dark:opacity-30 animate-pulse transition-all" />
+            {/* <img src={imageIcon || "/placeholder.svg"} alt="" className="w-full object-cover blur-lg scale-125 absolute opacity-80 z-0 dark:opacity-30 animate-pulse transition-all" /> */}
           </div>
         )}
         {Icon && <Icon weight="fill" className="text-blue-500 h-8 w-8 origin-left transform-gpu transition-all duration-300 ease-in-out group-hover:scale-75" />}

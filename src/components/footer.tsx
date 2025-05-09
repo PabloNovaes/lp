@@ -1,17 +1,19 @@
-import { Copyright, Envelope, InstagramLogo, Lightning, WhatsappLogo } from "@phosphor-icons/react"
+import logo from "@/assets/full-logo.svg"
+import { Copyright, Envelope, InstagramLogo, WhatsappLogo } from "@phosphor-icons/react"
 import { Button } from "./ui/button"
+
 
 export function Footer() {
     const currentYear = new Date().getFullYear()
 
     return (
         <footer className="p-4">
-            <div className="rounded-4xl border border-ring/20 bg-slate-950/10 backdrop-blur-3xl container mx-auto p-8">
+            <div className="rounded-4xl border border-ring/20 bg-slate-950/10 backdrop-blur-3xl mx-auto p-8 grid gap-5">
                 <div className="grid grid-cols-1 gap-8 text-center sm:text-left sm:grid-cols-3 lg:grid-cols-4">
                     <div className="space-y-3">
                         <div className="text-lg font-regular flex flex-col items-center sm:items-start gap-2">
-                            <Lightning size={24} weight="fill" />
-                            <h1 className="font-medium">iFast Reparazione PC</h1>
+                            <img src={logo} className="h-10" alt="" />
+                            {/* <h1 className="font-medium">iFast Reparazione PC</h1> */}
                         </div>
                         <p className="text-sm text-muted-foreground">
                             Vendita di iPhone, Notebook e accessori <br /> in tutta Italia.
@@ -33,7 +35,7 @@ export function Footer() {
                                         rel="noopener noreferrer"
                                         aria-label="Contattaci su WhatsApp"
                                     >
-                                        <WhatsappLogo weight="duotone" size={24} />
+                                        <WhatsappLogo weight="duotone" className="size-6" />
                                     </a>
                                 </Button>
                             </li>
@@ -50,7 +52,7 @@ export function Footer() {
                                         rel="noopener noreferrer"
                                         aria-label="Seguici su Instagram"
                                     >
-                                        <InstagramLogo weight="duotone" size={24} />
+                                        <InstagramLogo weight="duotone" className="size-6" />
                                     </a>
                                 </Button>
                             </li>
@@ -67,7 +69,7 @@ export function Footer() {
                                         rel="noopener noreferrer"
                                         aria-label="Inviaci una email"
                                     >
-                                        <Envelope weight="duotone" size={24} />
+                                        <Envelope weight="duotone" className="size-6" />
                                     </a>
                                 </Button>
                             </li>
@@ -99,8 +101,8 @@ export function Footer() {
                         <span className="hidden sm:inline">|</span>
                         <span>DE AGUIAR INVEST</span>
                     </div>
-                    <span>Created by <a target="_blank" className="underline" href="https://instagram.com/pablo.ng.macedo">@pablo.ng.macedo</a></span>
                 </div>
+                {/* <span className="text-xs text-muted-foreground w-full text-center">Created by <a target="_blank" className="underline" href="https://instagram.com/pablo.ng.macedo">@pablo.ng.macedo</a></span> */}
             </div>
         </footer>
     )
