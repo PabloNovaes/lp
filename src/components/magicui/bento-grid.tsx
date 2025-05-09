@@ -1,12 +1,12 @@
 import { ArrowRightIcon } from "@radix-ui/react-icons";
-import { Children, cloneElement, isValidElement, useEffect, type ComponentPropsWithoutRef, type ReactElement, type ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { Icon } from "@phosphor-icons/react";
-import { motion, useAnimate, useInView, type HTMLMotionProps } from "motion/react";
+import { motion, useInView, type HTMLMotionProps, type Variants } from "motion/react";
 
-interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
+interface BentoGridProps extends HTMLMotionProps<"div"> {
   children: ReactNode;
   className?: string;
 }
@@ -22,61 +22,36 @@ interface BentoCardProps extends HTMLMotionProps<"div"> {
   cta: string;
 }
 
-// Stagger function for animations
-const stagger = (amount: number = 0.1) => (index: number) => index * amount;
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2, // atraso entre os filhos
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 const BentoGrid = ({ children, className, ...props }: BentoGridProps) => {
-  const [scope, animate] = useAnimate();
 
-  const isInView = useInView(scope, { once: true, amount: 1 });
-
-  useEffect(() => {
-    if (isInView) {
-      animate(
-        "div.bento-card",
-        { opacity: 1, y: 0 },
-        {
-          duration: 1.2,
-          type: "spring",
-          bounce: 0,
-          delay: stagger(0.3)
-        }
-      );
-    }
-  }, [isInView, animate]);
-
-  // Clone children to add animation classes
-  const animatedChildren = Children.map(children, (child) => {
-    // Only process React elements
-    if (isValidElement(child)) {
-      // Type assertion to help TypeScript understand the structure
-      const element = child as ReactElement<{ className: string, style: Record<string, string | number | boolean> }>
-
-      return cloneElement(element, {
-        // Handle undefined className
-        className: cn(element.props?.className || "", "bento-card"),
-        // Handle undefined style and add animation initial state
-        style: {
-          opacity: 0,
-          y: 25,
-          ...(element.props?.style || {}),
-        },
-      })
-    }
-    return child
-  })
 
   return (
-    <div
-      ref={scope}
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="animate"
       className={cn(
         "grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",
         className,
       )}
       {...props}
     >
-      {animatedChildren}
-    </div>
+      {children}
+    </motion.div>
   );
 };
 
@@ -91,8 +66,14 @@ const BentoCard = ({
   cta,
   ...props
 }: BentoCardProps) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <motion.div
+      ref={ref}
+      variants={cardVariants}
+      animate={isInView ? "visible" : "hidden"}
       key={name}
       className={cn(
         "bento-card group relative col-span-1 flex flex-col justify-between overflow-hidden rounded-xl",
@@ -137,3 +118,4 @@ const BentoCard = ({
 };
 
 export { BentoCard, BentoGrid };
+

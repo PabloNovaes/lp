@@ -5,13 +5,13 @@ export function Footer() {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="border-t border-ring/10 bg-slate-950/10 backdrop-blur-3xl">
-            <div className="container mx-auto px-4 py-8">
+        <footer className="p-4">
+            <div className="rounded-4xl border border-ring/20 bg-slate-950/10 backdrop-blur-3xl container mx-auto p-8">
                 <div className="grid grid-cols-1 gap-8 text-center sm:text-left sm:grid-cols-3 lg:grid-cols-4">
                     <div className="space-y-3">
                         <div className="text-lg font-regular flex flex-col items-center sm:items-start gap-2">
                             <Lightning size={24} weight="fill" />
-                            <h2 className="font-bold">iFast Reparazione PC</h2>
+                            <h1 className="font-medium">iFast Reparazione PC</h1>
                         </div>
                         <p className="text-sm text-muted-foreground">
                             Vendita di iPhone, Notebook e accessori <br /> in tutta Italia.
@@ -99,6 +99,7 @@ export function Footer() {
                         <span className="hidden sm:inline">|</span>
                         <span>DE AGUIAR INVEST</span>
                     </div>
+                    <span>Created by <a target="_blank" className="underline" href="https://instagram.com/pablo.ng.macedo">@pablo.ng.macedo</a></span>
                 </div>
             </div>
         </footer>

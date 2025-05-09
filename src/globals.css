@@ -181,4 +181,28 @@
   body {
     @apply bg-gray-950 text-white;
   }
+
+  .blob {
+    @apply absolute w-[50vw] h-[50vh] inset-0 max-w-[300px] max-h-[300px] m-auto;
+    background: conic-gradient(
+      from 0deg,
+      #366585,
+      #2a3f4d,
+      #112f38,
+      #000000,
+      #4d3685,
+      #366585
+    );
+    animation: spinBlob 8s linear infinite;
+  }
+
+  @keyframes spinBlob {
+    0% {
+      transform: rotate(0deg) scale(2);
+    }
+
+    100% {
+      transform: rotate(1turn) scale(2);
+    }
+  }
 }

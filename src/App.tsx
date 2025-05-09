@@ -14,7 +14,6 @@ import browsers from "@/assets/browsers.svg";
 import currency from "@/assets/currency.svg";
 import gear from "@/assets/gear.svg";
 import { Footer } from "./components/footer";
-import { AnimatedGridPattern } from "./components/magicui/animated-grid-pattern";
 
 const features = [
   {
@@ -56,15 +55,20 @@ function App() {
 
   return (
     <>
-      <div className="w-full h-full fixed bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] bg-repeat bg-[length:128px] rounded-none opacity-[0.075]"></div>
-      <div className='bg-sky-800/40 blur-[100px] size-[250px] sm:size-[400px] rounded-full -left-20 -top-20 fixed z-10'></div>
-      <div className='bg-sky-800/40 blur-[100px] size-[250px] sm:size-[400px] rounded-full -right-20 -bottom-20 fixed z-10'></div>
+      <div className="fixed w-full h-full m-auto inset-0 blur-[100px]">
+        <div className=" mx-auto w-full bg-black h-full fixed left-0 top-0 [transform:scale(.8)]">
+          <div className="blob"></div>
+        </div>
+      </div>
+      <div className="w-full h-screen fixed left-0 bottom-0 bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] bg-repeat bg-[length:128px] rounded-none opacity-[0.09]"></div>
+      {/* <div className='bg-sky-800/40 blur-[100px] size-[250px] sm:size-[400px] rounded-full -left-20 -top-20 fixed z-10'></div>
+      <div className='bg-sky-800/40 blur-[100px] size-[250px] sm:size-[400px] rounded-full -right-20 -bottom-20 fixed z-10'></div> */}
       <main className='flex flex-col gap-2 relative z-20'>
         {/* <Scene /> */}
         <MobileMenu />
 
         <section id="hero" className='flex flex-col items-center justify-center gap-10 mx-auto text-white relative sm:px-20 h-svh'>
-          <AnimatedGridPattern
+          {/* <AnimatedGridPattern
             numSquares={30}
             maxOpacity={0.1}
             duration={3}
@@ -72,7 +76,7 @@ function App() {
             className={cn(
               "fixed [mask-image:radial-gradient(220px_circle_at_center,white,transparent)] sm:[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
               "mx-auto inset-y-[34%] sm:inset-y-[10%] skew-y-12 size-[400px] sm:size-[700px]",
-            )} />
+            )} /> */}
           <AnimatePresence>
             <motion.div
               initial={{ filter: "blur(10px)", y: 100, scale: .7, opacity: 0 }}
