@@ -168,7 +168,7 @@ function App() {
           </div>
         </section>
         <div className="w-full max-w-5xl h-px mx-auto" style={{ backgroundImage: "linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255, 255, 255, 0.3) 50%,rgba(255,255,255,0) 100%)" }} />
-        <section id="about" className="h-svh flex items-center mx-auto pt-0 w-[90%] border-t border-ring/10 rounded-2xl">
+        <section id="about" className="py-8 flex items-center mx-auto pt-0 w-[90%] border-t border-ring/10 rounded-2xl">
           <div className="flex flex-col  max-w-5xl gap-8 mx-auto">
             <div className="flex w-fit rounded-full items-center gap-1 p-1 px-1.5 uppercase text-xs bg-preset">
               <Star weight="fill" size={14} /> chi siamo
