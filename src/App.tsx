@@ -105,7 +105,7 @@ function App() {
                   as={"h1"}
                   by="word"
                   once>
-                  Assistenza Tecnica, Riparazioni e Soluzioni Digitali a Milano
+                  Assistenza e Riparazioni Computer a Milano
                 </TextAnimate>
                 <TextAnimate
                   className='text-zinc-300 text-md lg:text-xl lg:leading-[20px] tracking-[-1px] max-w-[680px]'
@@ -113,7 +113,7 @@ function App() {
                   delay={.6}
                   by="word"
                   once>
-                  Siamo al tuo fianco per ogni esigenza informatica, a casa o in azienda.
+                  Fast Riparazione Pc nasce con l’obiettivo di offrire riparazione e assistenza pc a domicilio a Milano a Privati e Aziende.
                 </TextAnimate>
               </div>
             </div>
@@ -148,7 +148,7 @@ function App() {
                 delay={.3}
                 by="word"
                 once>
-                Soluzioni complete per la manutenzione IT: scopri i nostri servizi!
+                Hai problemi con il tuo computer? Fast Riparazione Pc ha la soluzione al tuo problema.
               </TextAnimate>
               <TextAnimate
                 className='text-gray-300/90 text-sm font-normal sm:text-lg tracking-[-1px] max-w-[680px]'
@@ -157,7 +157,7 @@ function App() {
                 by="word"
                 as={'h3'}
                 once>
-                Offriamo supporto, manutenzione, formattazione, aggiornamenti e sicurezza. Garantisci le prestazioni dei tuoi sistemi, evitando tempi di inattività. Affidati a noi per la cura del tuo IT.
+                Con un’esperienza di ben 11 anni nel campo, e dispone dei migliori tecnici informatici, Offrendo un servizio a 360°, con un ottimo rapporto qualità prezzo.
               </TextAnimate>
             </div>
             <BentoGrid className="lg:grid-cols-3">
