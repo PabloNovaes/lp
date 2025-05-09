@@ -47,9 +47,9 @@ const features = [
   },
 ];
 
-const MotionText = ({ children, className, delay = 0.6 }: { children: string, className?: string, delay?: number }) => (
+const MotionText = ({ children, className = "text-sm", delay = 0.6 }: { children: string, className?: string, delay?: number }) => (
   <TextAnimate
-    className={cn('text-gray-300/90 text-sm font-normal sm:text-lg tracking-[-1px] max-w-[680px]', className)}
+    className={cn('text-gray-300/90 font-normal sm:text-lg tracking-[-1px] max-w-[680px]', className)}
     animation="blurInUp"
     delay={delay}
     by="word"
@@ -151,7 +151,7 @@ function App() {
                 Hai problemi con il tuo computer? Fast Riparazione Pc ha la soluzione al tuo problema.
               </TextAnimate>
               <TextAnimate
-                className='text-gray-300/90 text-sm font-normal sm:text-lg tracking-[-1px] max-w-[680px]'
+                className='text-gray-300/90 text-md font-normal sm:text-lg tracking-[-1px] max-w-[680px]'
                 animation="blurInUp"
                 delay={.6}
                 by="word"
