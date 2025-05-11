@@ -81,7 +81,7 @@ export function ContactForm() {
 
     return (
         <Form {...form}>
-            <motion.div initial="hidden" animate="visible" variants={formVariants} className="space-y-4 backdrop-blur-sm">
+            <motion.div initial="hidden" animate="visible" variants={formVariants} className="space-y-4">
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                     <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         <FormField

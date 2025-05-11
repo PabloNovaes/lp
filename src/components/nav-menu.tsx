@@ -115,7 +115,7 @@ const MobileMenu = memo(
                     </div>
                     <motion.div
                         id="mobile-menu"
-                        className="menu w-full bg-background absolute left-0 top-0 h-0"
+                        className="menu w-full bg-background absolute left-0 top-0 h-0 overflow-hidden"
                         aria-hidden={!isMenuOpen}
                     >
                         <div className="relative h-full bg-gray-950">
@@ -126,10 +126,15 @@ const MobileMenu = memo(
                                 {navLinks.map(({ href, label }, index) => (
                                     <motion.span
                                         key={`mobile-${href}-${index}`}
-                                        className="motion-item text-white opacity-0"
-                                        onClick={() => setIsMenuOpen(false)}
+                                        className="motion-item text-white opacity-0 cursor-pointer"
+                                        onClick={() => {
+                                            setIsMenuOpen(false)
+                                            setTimeout(() =>
+                                                document.querySelector(`section${href}`)?.scrollIntoView({ behavior: "smooth" }), 1000
+                                            )
+                                        }}
                                     >
-                                        <a href={href}>{label}</a>
+                                        {label}
                                     </motion.span>
                                 ))}
                                 <ul className="flex items-end mx-auto gap-4 justify-between text-muted-foreground h-full pr-10">
@@ -178,10 +183,13 @@ const DesktopMenu = memo(
                     >
                         <ul className="p-2 bg-white rounded-full px-6 flex gap-5 items-center">
                             {navLinks.map(({ href, label }, index) => (
-                                <li key={`desktop-${href}-${index}`}>
-                                    <a className={cn("text-sm transition-all duration-100 hover:text-primary/50", window.location.href.includes(href) && "text-blue-500")} href={href}>
-                                        {label}
-                                    </a>
+                                <li
+                                    className={cn("cursor-pointer text-sm transition-all duration-100 hover:text-primary/50", window.location.href.includes(href) && "text-blue-500")}
+                                    onClick={() => {
+                                        document.querySelector(`section${href}`)?.scrollIntoView({ behavior: "smooth" })
+                                    }}
+                                    key={`desktop-${href}-${index}`}>
+                                    {label}
                                 </li>
                             ))}
                         </ul>
