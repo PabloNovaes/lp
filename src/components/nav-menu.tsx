@@ -130,7 +130,7 @@ const MobileMenu = memo(
                                         onClick={() => {
                                             setIsMenuOpen(false)
                                             setTimeout(() =>
-                                                document.querySelector(`section${href}`)?.scrollIntoView({ behavior: "smooth" }), 1000
+                                                document.querySelector(`section${href}`)?.scrollIntoView({ behavior: "smooth" }), 1300
                                             )
                                         }}
                                     >
