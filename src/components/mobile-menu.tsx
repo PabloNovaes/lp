@@ -1,6 +1,5 @@
 import type React from "react"
 
-import inverted_logo from "@/assets/lightning.svg"
 import { nav_links, socialLinks } from "@/constants"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import {
@@ -176,9 +175,6 @@ const DesktopMenu = memo(
                         exit="hidden"
                         className="text-black flex items-center gap-3"
                     >
-                        <div className="bg-white px-3 rounded-full h-full w-[40px] grid place-content-center">
-                            <img src={inverted_logo} className="h-10" alt="" />
-                        </div>
                         <ul className="p-2 bg-white rounded-full px-6 flex gap-5 items-center">
                             {navLinks.map(({ href, label }, index) => (
                                 <li key={`desktop-${href}-${index}`}>

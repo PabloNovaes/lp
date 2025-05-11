@@ -196,6 +196,25 @@
     animation: spinBlob 8s linear infinite;
   }
 
+  .badge {
+    background: linear-gradient(
+      0.07383128568086761deg,
+      var(#4f1ad614, rgba(0, 85, 255, 0.08)) 0%,
+      var(#9999991a, rgba(153, 153, 153, 0.1)) 100%
+    );
+
+    & .top-line {
+      @apply h-px w-full absolute top-0 mx-auto;
+
+      background: linear-gradient(
+        90.00000000000155deg,
+        rgba(79, 26, 214, 0) 0%,
+        #4f1ad6 /* {"name":"Blue"} */ 50%,
+        rgba(0, 85, 255, 0) 100%
+      );
+    }
+  }
+
   .icon-wrapper {
     @apply flex items-center justify-center rounded-full;
     box-shadow: rgba(64, 120, 168, 0.37) 0px 0.706592px 0.706592px -0.666667px,

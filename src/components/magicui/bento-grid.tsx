@@ -85,8 +85,8 @@ const BentoCard = ({
       )}
       {...props}
     >
-      <div>{background}</div>
-      <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
+      {background && <div>{background}</div>}
+      <div className="pointer-events-none z-10 transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
         {imageIcon && (
           <div className="size-12 grid place-content-center relative mb-3">
             <img src={imageIcon || "/placeholder.svg"} alt="" className="w-full object-cover relative z-10" />

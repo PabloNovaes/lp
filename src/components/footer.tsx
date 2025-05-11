@@ -8,20 +8,16 @@ export function Footer() {
 
     return (
         <footer className="p-4">
-            <div className="rounded-4xl border border-ring/20 bg-slate-950/10 backdrop-blur-3xl mx-auto p-8 grid gap-5">
-                <div className="grid grid-cols-1 gap-8 text-center sm:text-left sm:grid-cols-3 lg:grid-cols-4">
+            <div className="rounded-4xl border border-ring/20 bg-slate-950/10 backdrop-blur-3xl mx-auto max-w-5xl p-8 grid gap-5">
+                <div className="grid grid-cols-1 gap-8 text-center sm:text-left sm:grid-cols-2">
                     <div className="space-y-3">
                         <div className="text-lg font-regular flex flex-col items-center sm:items-start gap-2">
-                            <img src={logo} className="h-10" alt="" />
+                            <img src={logo} className="h-8" alt="" />
                             {/* <h1 className="font-medium">iFast Reparazione PC</h1> */}
                         </div>
-                        <p className="text-sm text-muted-foreground">
-                            Vendita di iPhone, Notebook e accessori <br /> in tutta Italia.
-                        </p>
                     </div>
-                    <div className="space-y-3 justi flex flex-col">
-                        <h2 className="text-lg font-semibold">Contatti</h2>
-                        <ul className="flex justify-center sm:justify-start space-x-2 text-sm">
+                    <div className="space-y-3 justify-end flex flex-col">
+                        <ul className="flex justify-center sm:justify-end space-x-2 text-sm">
                             <li>
                                 <Button
                                     variant="outline"
@@ -91,7 +87,7 @@ export function Footer() {
                         </ul>
                     </div> */}
                 </div>
-                <div className="mt-8 pt-8 border-t border-ring/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+                <div className="pt-8 border-t border-ring/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
                     <div className="flex items-center gap-2 justify-center sm:justify-start w-full sm:w-auto">
                         <Copyright size={16} />
                         <span>{currentYear} iFast Reparazione PC</span>
