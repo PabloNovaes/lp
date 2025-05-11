@@ -2,6 +2,7 @@ import type React from "react"
 
 import { nav_links, socialLinks } from "@/constants"
 import { useMediaQuery } from "@/hooks/use-media-query"
+import { cn } from "@/lib/utils"
 import {
     AnimatePresence,
     motion,
@@ -15,7 +16,7 @@ import { memo, useEffect, useRef, useState } from "react"
 
 type NavLink = typeof nav_links[0]
 
-interface HeaderMenuProps {
+interface NavMenuProps {
     navLinks: NavLink[]
     className?: string
     mobileBreakpoint?: number
@@ -178,7 +179,7 @@ const DesktopMenu = memo(
                         <ul className="p-2 bg-white rounded-full px-6 flex gap-5 items-center">
                             {navLinks.map(({ href, label }, index) => (
                                 <li key={`desktop-${href}-${index}`}>
-                                    <a className="text-sm hover:text-primary transition-colors" href={href}>
+                                    <a className={cn("text-sm transition-all duration-100 hover:text-primary/50", window.location.href.includes(href) && "text-blue-500")} href={href}>
                                         {label}
                                     </a>
                                 </li>
@@ -194,7 +195,7 @@ const DesktopMenu = memo(
 
 DesktopMenu.displayName = "DesktopMenu"
 
-export function HeaderMenu({ navLinks, mobileBreakpoint = 500 }: HeaderMenuProps) {
+export function NavMenu({ navLinks, mobileBreakpoint = 500 }: NavMenuProps) {
     const isMobile = useMediaQuery(`(max-width: ${mobileBreakpoint}px)`)
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)

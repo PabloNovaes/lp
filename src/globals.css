@@ -178,6 +178,19 @@
     @apply border-border outline-ring/50 font-airbnb;
     scroll-behavior: smooth;
   }
+
+  input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.2) inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    -webkit-background-clip: text;
+  }
+
+  input:-webkit-autofill:focus {
+    box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.2) inset, var(--tw-inset-shadow),
+      var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow),
+      var(--tw-ring-shadow), var(--tw-shadow) !important;
+  }
+
   body {
     @apply bg-gray-950 text-white;
   }
