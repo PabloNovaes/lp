@@ -134,7 +134,7 @@ export function ContactForm() {
                                 <FormItem>
                                     <FormControl>
                                         <div className="relative">
-                                            <ChatCircleText className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5" />
+                                            <ChatCircleText className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5 opacity-100" />
                                             <Input
                                                 placeholder="Oggetto della richiesta"
                                                 className="bg-black/20 backdrop-blur-3xl border border-ring/20 text-white rounded-2xl placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500 transition-all duration-300 h-13 pl-10"
