@@ -13,7 +13,6 @@ export function Footer() {
                     <div className="space-y-3">
                         <div className="text-lg font-regular flex flex-col items-center sm:items-start gap-2">
                             <img src={logo} className="h-8" alt="" />
-                            {/* <h1 className="font-medium">iFast Reparazione PC</h1> */}
                         </div>
                     </div>
                     <div className="space-y-3 justify-end flex flex-col">
@@ -60,7 +59,7 @@ export function Footer() {
                                     className="w-10 h-10 border-slate-500/10 rounded-full bg-slate-800/20 hover:bg-[#e34134] hover:text-white transition-all duration-300"
                                 >
                                     <a
-                                        href="mailto:info@ifaststore.com"
+                                        href="mailto:fastriparazionepc@gmail.com "
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label="Inviaci una email"
@@ -71,26 +70,11 @@ export function Footer() {
                             </li>
                         </ul>
                     </div>
-                    {/* <div className="space-y-3 flex flex-col justify-center">
-                        <h2 className="text-lg font-semibold">Informazioni Legali</h2>
-                        <ul className="space-y-2 text-sm">
-                            <li>
-                                <a href="/use-terms" className="text-muted-foreground hover:text-primary transition-colors duration-200">
-                                    Termini di Utilizzo
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors duration-200">
-                                    Politica sulla Privacy
-                                </a>
-                            </li>
-                        </ul>
-                    </div> */}
                 </div>
                 <div className="pt-8 border-t border-ring/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
                     <div className="flex items-center gap-2 justify-center sm:justify-start w-full sm:w-auto">
                         <Copyright size={16} />
-                        <span>{currentYear} iFast Reparazione PC</span>
+                        <span>{currentYear} Fast Reparazione PC</span>
                     </div>
                     <div className="flex flex-wrap justify-center sm:justify-end gap-x-4 gap-y-2 text-center w-full sm:w-auto">
                         <span>P.IVA: 11610820968</span>

@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
-import { motion } from "framer-motion"
 import { ChatCircleText, Envelope, UserCircle } from "@phosphor-icons/react"
+import { motion } from "framer-motion"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
@@ -91,7 +91,7 @@ export function ContactForm() {
                                 <FormItem>
                                     <FormControl>
                                         <div className="relative">
-                                            <UserCircle weight="fill" size={22} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5" />
+                                            <UserCircle weight="fill" size={22} className="z-10 absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5" />
                                             <Input
                                                 placeholder="Il tuo nome"
                                                 className="bg-black/20 backdrop-blur-3xl border border-ring/20 text-white rounded-2xl placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500 transition-all duration-300 h-13 pl-10"
@@ -112,7 +112,7 @@ export function ContactForm() {
                                 <FormItem>
                                     <FormControl>
                                         <div className="relative">
-                                            <Envelope weight="fill" size={22} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5" />
+                                            <Envelope weight="fill" size={22} className="z-10 absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5" />
                                             <Input
                                                 placeholder="La tua email"
                                                 className="bg-black/20 backdrop-blur-3xl border border-ring/20 text-white rounded-2xl placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500 transition-all duration-300 h-13 pl-10"
@@ -134,7 +134,7 @@ export function ContactForm() {
                                 <FormItem>
                                     <FormControl>
                                         <div className="relative">
-                                            <ChatCircleText weight="fill" size={22} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5 opacity-100" />
+                                            <ChatCircleText weight="fill" size={22} className="z-10 absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5 opacity-100" />
                                             <Input
                                                 placeholder="Oggetto della richiesta"
                                                 className="bg-black/20 backdrop-blur-3xl border border-ring/20 text-white rounded-2xl placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500 transition-all duration-300 h-13 pl-10"

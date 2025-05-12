@@ -13,7 +13,6 @@ import gear from "@/assets/gear.svg";
 import { ContactForm } from "./components/contact";
 import { ContactButton } from "./components/contact-button";
 import { Footer } from "./components/footer";
-import { AnimatedGridPattern } from "./components/magicui/animated-grid-pattern";
 import { PriceCard } from "./components/price-card";
 import { nav_links } from "./constants";
 
@@ -21,23 +20,22 @@ const features = [
   {
     imageIcon: browsers,
     name: "Creazione Siti Web",
-    description: "Creiamo il tuo Sito da Zero, Siti Web su Misura, e-commerce. Ottimizzati per i motori di ricerca."
-    ,
-    href: "/",
+    description: "Creiamo il tuo Sito da Zero, Siti Web su Misura, e-commerce. Ottimizzati per i motori di ricerca.",
+    href: "https://wa.me/393338343528?text=Ciao%2C%20vorrei%20saperne%20di%20pi%C3%B9%20sul%20servizio%20di%20Creazione%20Siti%20Web.",
     cta: "Richiedere il servizio",
   },
   {
     imageIcon: gear,
     name: "Riparazione & Assistenza",
     description: "Offriamo assistenza e riparazione pc a domicilio sia a privati che aziende in tutto il territorio di Milano.",
-    href: "/",
+    href: "https://wa.me/393338343528?text=Ciao%2C%20vorrei%20saperne%20di%20pi%C3%B9%20sul%20servizio%20di%20Riparazione%20e%20Assistenza.",
     cta: "Richiedere il servizio",
   },
   {
     imageIcon: currency,
     name: "Vendita iPhone/PC",
     description: "Abbiamo il nostro e-commerce per la vendita di prodotti informatici come iPhone, computer e molto altro, tutto a un ottimo prezzo.",
-    href: "/",
+    href: "https://wa.me/393338343528?text=Ciao%2C%20vorrei%20saperne%20di%20pi%C3%B9%20sul%20servizio%20di%20Vendita%20iPhone%2FPC.",
     cta: "Richiedere il servizio",
   },
 ];
@@ -57,162 +55,180 @@ const MotionText = ({ children, className = "text-sm", delay = 0.6 }: { children
 function App() {
   return (
     <>
-      <div className="fixed w-full h-full m-auto inset-0 blur-[100px]">
-        <div className=" mx-auto w-full bg-black h-full fixed left-0 top-0 [transform:scale(.8)]">
+      {/* Background layers */}
+      {/* <div className="fixed inset-0 w-full h-full m-auto blur-[100px]">
+        <div className="fixed left-0 top-0 w-full h-full bg-black scale-[.8]">
           <div className="blob rounded-full" />
         </div>
-      </div>
-      <div className="w-full h-screen fixed left-0 bottom-0 bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] bg-repeat bg-[length:128px] rounded-none opacity-[0.09]"></div>
-      <AnimatedGridPattern
-        numSquares={30}
-        maxOpacity={0.1}
-        duration={3}
-        repeatDelay={1}
-        className={cn("hidden",
-          "fixed [mask-image:radial-gradient(220px_circle_at_center,white,transparent)] sm:[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
-          "mx-auto inset-y-[34%] sm:inset-y-[10%] skew-y-12 size-[400px] sm:size-[700px]",
-        )} />
+      </div> */}
+      <div className='bg-sky-800 blur-[130px] sm:blur-[180px] size-[250px] sm:size-[400px] rounded-full -left-20 -top-20 fixed'></div>
+      <div className='bg-sky-800 blur-[130px] sm:blur-[180px] size-[250px] sm:size-[400px] rounded-full -right-20 -bottom-20 fixed'></div>
+
+      <div className="fixed left-0 bottom-0 w-full h-screen bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] bg-repeat bg-[length:128px] opacity-[0.09] rounded-none" />
+      {/* Background layers */}
 
       <ContactButton />
-      <main className='flex flex-col relative z-20'>
-        {/* <Scene /> */}
+
+      <main className="relative z-20 flex flex-col ">
         <NavMenu navLinks={nav_links} />
 
-        <section id="hero" className='flex flex-col items-center gap-10 mx-auto text-white relative sm:px-20 h-svh pt-[88px]'>
+        {/* Hero Section */}
+        <section id="hero" className="relative flex flex-col items-center gap-10 pt-[88px] mx-auto h-svh sm:px-20 text-white overflow-hidden">
           <AnimatePresence>
-            <div className="grid gap-4">
-              <div className="grid gap-4 text-center px-8">
-                <div className="mx-auto mb-2">
-                  <img src={logo} className="h-8 mx-auto" alt="" />
-                </div>
-                <TextAnimate
-                  className='font-medium text-[30px] leading-[32px] sm:text-4xl sm:leading-[38px] lg:text-5xl lg:leading-[44px] tracking-[-1px] max-w-[680px] [&_span]:bg-gradient-to-b from-neutral-400 to-black'
-                  animation="blurInUp"
-                  delay={.4}
-                  as={"h1"}
-                  by="word"
-                  once>
-                  Assistenza e Riparazioni Computer a Milano
-                </TextAnimate>
-                <TextAnimate
-                  className='text-zinc-300 text-md lg:text-xl lg:leading-[20px] tracking-[-1px] max-w-[500px] mx-auto'
-                  animation="blurInUp"
-                  delay={.6}
-                  by="word"
-                  once>
-                  Fast Riparazione Pc nasce con l’obiettivo di offrire riparazione e assistenza pc a domicilio a Milano a Privati e Aziende.
-                </TextAnimate>
-              </div>
+            <div className="grid gap-4 text-center px-8">
+              <motion.div
+                variants={defaultItemAnimationVariants.blurInUp.item}
+                initial={{ ...defaultItemAnimationVariants.blurInUp.item["hidden"], y: 30 }}
+                animate={{ ...defaultItemAnimationVariants.blurInUp.item["show"], transition: { delay: .15 } }}
+                className="mx-auto mb-2">
+                <img src={logo} alt="" className="h-8 mx-auto" />
+              </motion.div>
+              <TextAnimate
+                className="font-medium text-[30px] leading-[32px] sm:text-4xl sm:leading-[38px] lg:text-5xl lg:leading-[44px] tracking-[-1px] max-w-[680px] [&_span]:bg-gradient-to-b from-neutral-400 to-black"
+                animation="blurInUp"
+                delay={0.4}
+                as="h1"
+                by="word"
+                once>
+                Assistenza e Riparazioni Computer a Milano
+              </TextAnimate>
+              <TextAnimate
+                className="text-zinc-300 text-md lg:text-xl lg:leading-[20px] tracking-[-1px] max-w-[500px] mx-auto"
+                animation="blurInUp"
+                delay={0.6}
+                by="word"
+                once>
+                Fast Riparazione Pc nasce con l’obiettivo di offrire riparazione e assistenza pc a domicilio a Milano a Privati e Aziende.
+              </TextAnimate>
             </div>
+
             <motion.div
               variants={defaultItemAnimationVariants.blurInUp.container}
-              className="flex justify-center items-end h-full"
-              style={{
-              }}>
+              className="flex justify-center items-end h-full">
               <motion.img
                 src={mockup}
+                alt=""
                 variants={defaultItemAnimationVariants.blurInUp.item}
-                initial={"hidden"}
-                animate={"show"}
+                initial={{ ...defaultItemAnimationVariants.blurInUp.item["hidden"], y: 30 }}
+                animate={{ ...defaultItemAnimationVariants.blurInUp.item["show"], transition: { delay: .65 } }}
+                className="z-20 h-full pl-[24px] drop"
                 style={{
-                  maskImage: "linear-gradient(to bottom,rgb(0, 0, 0) 50%,rgba(255, 255, 255, 0))"
+                  maskImage: "linear-gradient(to bottom,rgb(0, 0, 0) 50%,rgba(255, 255, 255, 0))",
+                  filter: "drop-shadow(10px 10px 10px white)"
                 }}
-                className="pl-[24px] h-full" alt="" />
+              />
             </motion.div>
+
           </AnimatePresence>
         </section>
-        <div className="w-full max-w-5xl h-px mx-auto" style={{ backgroundImage: "linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255, 255, 255, 0.3) 50%,rgba(255,255,255,0) 100%)" }} />
-        <section id="services" className="relative min-h-svh mx-auto pt-8 grid px-8 border-t border-ring/10 rounded-2xl pb-10">
-          <div className="flex flex-col justify-center max-w-5xl gap-8 mx-auto">
-            <div className="flex flex-col gap-4 justify-between max-w-3xl">
-              <div className="flex w-fit rounded-full items-center gap-1.5 p-1 px-1.5 bg-preset text-xs">
+
+        {/* Divider */}
+        <div className="w-full max-w-5xl h-px mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+
+        {/* Services Section */}
+        <section id="services" className="relative max-w-5xl grid p-8 max-sm:py-16 min-h-svh mx-auto border-t border-ring/10 rounded-2xl pb-10 overflow-hidden">
+          <div className="flex flex-col justify-center gap-8">
+            <div className="flex flex-col gap-4 max-w-3xl">
+              <div className="flex w-fit items-center gap-1.5 p-1 px-1.5 pr-2 rounded-full bg-preset text-xs">
                 <Package weight="fill" size={16} /> Servizi
               </div>
               <TextAnimate
-                className='text-3xl font-medium text-gray-100 max-w-[820px] leading-[32px] lg:text-4xl sm:leading-[38px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black'
+                className="text-3xl font-medium text-gray-100 max-w-[820px] leading-[32px] lg:text-4xl sm:leading-[38px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black"
                 animation="blurInUp"
-                as={"h3"}
-                delay={.3}
+                as="h3"
+                delay={0.3}
                 by="word"
                 once>
                 Hai problemi con il tuo computer? Fast Riparazione Pc ha la soluzione al tuo problema.
               </TextAnimate>
               <TextAnimate
-                className='text-gray-300/90 text-md font-normal sm:text-lg tracking-[-1px] max-w-[680px]'
+                className="text-gray-300/90 text-md font-normal sm:text-lg tracking-[-1px] max-w-[680px]"
                 animation="blurInUp"
-                delay={.6}
+                delay={0.6}
+                as="h3"
                 by="word"
-                as={'h3'}
                 once>
                 Con un’esperienza di ben 11 anni nel campo, e dispone dei migliori tecnici informatici, Offrendo un servizio a 360°, con un ottimo rapporto qualità prezzo.
               </TextAnimate>
             </div>
+
             <BentoGrid className="lg:grid-cols-3">
-              {features.map(({ ...rest }) => (
-                <BentoCard key={rest.name} {...rest} className={cn("bg-black/20 backdrop-blur-3xl border border-ring/20 [&_h3]:text-white [&_p]:text-white/70 rounded-4xl")} />
+              {features.map((feature) => (
+                <BentoCard
+                  key={feature.name}
+                  {...feature}
+                  className="bg-black/20 backdrop-blur-3xl border border-ring/20 rounded-4xl [&_h3]:text-white [&_p]:text-white/70"
+                />
               ))}
             </BentoGrid>
           </div>
         </section>
-        <div className="w-full max-w-5xl h-px mx-auto" style={{ backgroundImage: "linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255, 255, 255, 0.3) 50%,rgba(255,255,255,0) 100%)" }} />
-        <section id="about" className="px-8 h-svh grid place-content-center mx-auto py-8 w-full border-t border-ring/10 rounded-2xl">
-          <div className="flex flex-col  max-w-5xl gap-4 mx-auto">
-            <div className="flex w-fit rounded-full items-center gap-1 p-1 px-1.5 text-xs bg-preset">
+
+        {/* Divider */}
+        <div className="w-full max-w-5xl h-px mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+
+        {/* About Section */}
+        <section id="about" className="max-w-5xl p-8 max-sm:py-16 sm:h-svh grid place-content-center mx-auto w-full border-t border-ring/10 rounded-2xl">
+          <div className="flex flex-col gap-4">
+            <div className="flex w-fit items-center gap-1 p-1 px-1.5 pr-2 text-xs bg-preset rounded-full">
               <Star weight="fill" size={14} /> Chi siamo
             </div>
             <TextAnimate
-              className='text-3xl font-medium text-gray-100 max-w-[820px] leading-[32px] lg:text-4xl sm:leading-[38px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black'
+              className="text-3xl font-medium text-gray-100 max-w-[820px] leading-[32px] lg:text-4xl sm:leading-[38px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black"
               animation="blurInUp"
-              as={"h3"}
-              delay={.3}
+              as="h3"
+              delay={0.3}
               by="word"
               once>
               Scopri di più su chi siamo
             </TextAnimate>
-            <div className="grid sm:grid-cols-2 text-start gap-4 sm:gap-2">
-              <MotionText className="text-md" delay={.4}>
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-2 text-start">
+              <MotionText className="text-md" delay={0.4}>
                 Fast Riparazione Pc nasce con l’obiettivo di offrire riparazione PC e assistenza a domicilio su tutto il territorio di Milano, sia a privati che ad aziende.
               </MotionText>
-              <MotionText className="text-md" delay={.8}>
+              <MotionText className="text-md" delay={0.8}>
                 Vantiamo un’esperienza di ben 7 anni e disponiamo dei migliori tecnici informatici specializzati, che svolgono un’eccellente assistenza direttamente a domicilio.
               </MotionText>
               <MotionText className="text-md" delay={1.2}>
-                Offriamo un servizio a 360°, con un ottimo rapporto qualità-prezzo.
-                Lavoriamo con tutte le marche e i modelli disponibili sul mercato, svolgendo assistenza e riparazione hardware e software, sia per Computer che per Mac, sempre a domicilio.
+                Offriamo un servizio a 360°, con un ottimo rapporto qualità-prezzo. Lavoriamo con tutte le marche e i modelli disponibili sul mercato, svolgendo assistenza e riparazione hardware e software, sia per Computer che per Mac, sempre a domicilio.
               </MotionText>
             </div>
           </div>
         </section>
-        <section id="contact" className="px-8 grid place-content-center mx-auto py-8 w-full border-t border-ring/10 rounded-2xl">
-          <div className="max-w-5xl gap-8 grid md:grid-cols-2">
+
+        {/* Divider */}
+        <div className="w-full max-w-5xl h-px mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+
+        {/* Contact Section */}
+        <section id="contact" className="max-w-5xl p-8 max-sm:py-16 grid place-content-center mx-auto w-full border-t border-ring/10 rounded-2xl min-h-svh">
+          <div className="grid gap-8 md:grid-cols-2">
             <div className="flex flex-col gap-4 w-full">
-              <div className="flex w-fit rounded-full items-center gap-1 p-1 px-1.5 text-xs bg-preset">
+              <div className="flex w-fit items-center gap-1 p-1 px-1.5 pr-2 text-xs bg-preset rounded-full">
                 <ChatCircleDots weight="fill" size={14} /> Contattaci
               </div>
               <TextAnimate
-                className='text-3xl font-medium text-gray-100 max-w-[820px] leading-[32px] lg:text-4xl sm:leading-[38px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black'
+                className="text-3xl font-medium text-gray-100 max-w-[820px] leading-[32px] lg:text-4xl sm:leading-[38px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black"
                 animation="blurInUp"
-                as={"h3"}
-                delay={.3}
+                as="h3"
+                delay={0.3}
                 by="word"
                 once>
                 Scopri di più su chi siamo
               </TextAnimate>
-              <div className="grid text-start gap-4 sm:gap-2">
-                <div className="grid gap-4">
-                  <MotionText className="text-md" delay={.4}>
-                    Avete domande? Non esitate a contattarci direttamente. Il nostro team ti contatterà per aiutarti.
-                  </MotionText>
-                  <ContactForm />
-                </div>
-
+              <div className="grid gap-4 sm:gap-2 text-start">
+                <MotionText className="text-md" delay={0.4}>
+                  Avete domande? Non esitate a contattarci direttamente. Il nostro team ti contatterà per aiutarti.
+                </MotionText>
+                <ContactForm />
               </div>
             </div>
+
             <PriceCard />
           </div>
         </section>
+
         <Footer />
-      </main >
+      </main>
     </>
   )
 }

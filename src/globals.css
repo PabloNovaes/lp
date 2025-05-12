@@ -196,15 +196,16 @@
   }
 
   .blob {
-    @apply absolute w-[100vw] h-[100vh] inset-0 max-w-[600px] max-h-[200px] m-auto;
+    @apply absolute w-[100vw] h-[100vh] inset-0 max-w-[600px] max-h-[600px] m-auto opacity-70;
     background: conic-gradient(
       from 0deg,
-      #366585,
-      #2a3f4d,
-      #000000,
-      #111a38,
-      #363685,
-      #366585
+      var(--color-sky-800),
+      black,
+      black,
+      var(--color-sky-800),
+      black,
+      black,
+      var(--color-sky-800)
     );
     animation: spinBlob 8s linear infinite;
   }

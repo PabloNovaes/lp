@@ -1,6 +1,6 @@
 import type React from "react"
 
-import { nav_links, socialLinks } from "@/constants"
+import { nav_links } from "@/constants"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { cn } from "@/lib/utils"
 import {
@@ -80,15 +80,19 @@ const MobileMenu = memo(
     }: {
         navLinks: NavLink[]
         isMenuOpen: boolean
+        show: boolean
         setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
         scope: React.RefObject<HTMLElement>
     }) => {
         return (
-            <div className="w-full z-20 fixed top-0 left-0">
-                <header className="flex text-primary relative h-[60px] items-center border-ring/10" ref={scope}>
+            <div className="w-full z-[100] fixed top-0 left-0">
+                <header className="flex text-primary relative h-[60px] items-center border-ring/10 transition-all duration-200 pr-2 pt-2" ref={scope}>
                     <div className="flex items-center w-full max-w-5xl m-auto justify-end">
                         <button
-                            className="z-20 focus:outline-none flex flex-col size-[60px] justify-center items-center"
+                            className={cn(
+                                "z-20 focus:outline-none flex flex-col size-[60px] justify-center items-center transition-all duration-300 border-ring/20",
+                                "bg-black/20 border rounded-full backdrop-blur-sm"
+                            )}
                             onClick={() => setIsMenuOpen((prev) => !prev)}
                             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                             aria-expanded={isMenuOpen}
@@ -137,7 +141,7 @@ const MobileMenu = memo(
                                         {label}
                                     </motion.span>
                                 ))}
-                                <ul className="flex items-end mx-auto gap-4 justify-between text-muted-foreground h-full pr-10">
+                                {/* <ul className="flex items-end mx-auto gap-4 justify-between text-muted-foreground h-full pr-10">
                                     {socialLinks.map(({ href, ...rest }, index) => (
                                         <>
                                             <motion.li className="motion-item opacity-0">
@@ -150,7 +154,7 @@ const MobileMenu = memo(
                                         </>
                                     ))}
 
-                                </ul>
+                                </ul> */}
                             </nav>
                         </div>
 
@@ -172,7 +176,7 @@ const DesktopMenu = memo(
         showMenu: boolean
     }) => {
         return (
-            <header className="w-full fixed h-fit top-0 py-6 flex justify-center z-20">
+            <header className="w-full fixed h-fit top-0 py-6 flex justify-center z-[100]">
                 <AnimatePresence>
                     <motion.nav
                         variants={menuBarVariants}
@@ -181,10 +185,10 @@ const DesktopMenu = memo(
                         exit="hidden"
                         className="text-black flex items-center gap-3"
                     >
-                        <ul className="p-2 bg-white rounded-full px-6 flex gap-5 items-center">
+                        <ul className="p-2.5 bg-white shadow-2xl rounded-xl px-6 flex gap-5 items-center">
                             {navLinks.map(({ href, label }, index) => (
                                 <li
-                                    className={cn("cursor-pointer text-sm transition-all duration-100 hover:text-primary/50", window.location.href.includes(href) && "text-blue-500")}
+                                    className={cn("cursor-pointer font-medium text-[#03030] text-sm transition-all duration-100 hover:text-primary/50", window.location.href.includes(href) && "text-blue-500")}
                                     onClick={() => {
                                         document.querySelector(`section${href}`)?.scrollIntoView({ behavior: "smooth" })
                                     }}
@@ -222,9 +226,9 @@ export function NavMenu({ navLinks, mobileBreakpoint = 500 }: NavMenuProps) {
         if (Math.abs(current - previous) < scrollThreshold) return
 
         if (current > previous) {
-            setShowMenu(false)
-        } else if (current < previous) {
             setShowMenu(true)
+        } else if (current < previous) {
+            setShowMenu(false)
         }
 
         lastScrollY.current = current
@@ -243,7 +247,7 @@ export function NavMenu({ navLinks, mobileBreakpoint = 500 }: NavMenuProps) {
     }, [isMenuOpen])
 
     if (isMobile) {
-        return <MobileMenu navLinks={navLinks} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scope={scope} />
+        return <MobileMenu show={showMenu} navLinks={navLinks} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scope={scope} />
     }
 
     return <DesktopMenu navLinks={navLinks} showMenu={showMenu} />

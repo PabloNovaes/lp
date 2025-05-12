@@ -1,6 +1,6 @@
-import * as React from "react"
 import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"
+import * as React from "react"
 import {
   Controller,
   FormProvider,
@@ -11,8 +11,8 @@ import {
   type FieldValues,
 } from "react-hook-form"
 
-import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
+import { cn } from "@/lib/utils"
 
 const Form = FormProvider
 
@@ -145,7 +145,9 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
     <p
       data-slot="form-message"
       id={formMessageId}
-      className={cn("text-destructive text-sm", className)}
+      className={cn("pl-2 text-red-500/90 text-sm",
+        error && "focus-visible:ring-red-500 border-red-500",
+        className)}
       {...props}
     >
       {body}
@@ -154,12 +156,8 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
 }
 
 export {
-  useFormField,
-  Form,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormDescription,
-  FormMessage,
-  FormField,
+  Form, FormControl,
+  FormDescription, FormField, FormItem,
+  FormLabel, FormMessage, useFormField
 }
+
