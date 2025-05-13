@@ -16,7 +16,7 @@ export function PriceCard() {
                     <div className="bg-white/5 p-4 rounded-xl border border-[#2a2a4a]/20">
                         <p className="text-gray-300 mb-2">Per i privati</p>
                         <p className="text-2xl font-medium">
-                            30,00€ <span className="text-sm font-normal text-gray-400">+IVA</span>
+                            40,00€ <span className="text-sm font-normal text-gray-400">+IVA</span>
                         </p>
                     </div>
 
