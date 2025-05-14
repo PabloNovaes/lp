@@ -10,11 +10,13 @@ import { cn } from "./lib/utils";
 import browsers from "@/assets/browsers.svg";
 import currency from "@/assets/currency.svg";
 import gear from "@/assets/gear.svg";
+import { AllServiceSection } from "./components/all-services-section";
 import { ContactForm } from "./components/contact";
 import { ContactButton } from "./components/contact-button";
 import { Footer } from "./components/footer";
 import { PriceCard } from "./components/price-card";
 import { nav_links } from "./constants";
+
 
 const features = [
   {
@@ -47,12 +49,13 @@ const MotionText = ({ children, className = "text-sm", delay = 0.6 }: { children
     delay={delay}
     by="word"
     as={'h3'}
-    once>
+    once={true}>
     {children}
   </TextAnimate>
 )
 
 function App() {
+
   return (
     <>
       {/* Background layers */}
@@ -89,7 +92,7 @@ function App() {
                 delay={0.4}
                 as="h1"
                 by="word"
-                once>
+                once={true}>
                 Assistenza e Riparazioni Computer a Milano
               </TextAnimate>
               <TextAnimate
@@ -97,7 +100,7 @@ function App() {
                 animation="blurInUp"
                 delay={0.6}
                 by="word"
-                once>
+                once={true}>
                 Fast Riparazione Pc nasce con l’obiettivo di offrire riparazione e assistenza pc a domicilio a Milano a Privati e Aziende.
               </TextAnimate>
             </div>
@@ -130,7 +133,7 @@ function App() {
           <div className="flex flex-col justify-center gap-8">
             <div className="flex flex-col gap-4 max-w-3xl">
               <div className="flex w-fit items-center gap-1.5 p-1 px-1.5 pr-2 rounded-full bg-preset text-xs">
-                <Package weight="fill" size={16} /> Servizi
+                <Package weight="fill" size={16} /> Servizi Principali
               </div>
               <TextAnimate
                 className="text-3xl font-medium text-gray-100 max-w-[820px] leading-[32px] lg:text-4xl sm:leading-[38px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black"
@@ -138,7 +141,7 @@ function App() {
                 as="h3"
                 delay={0.3}
                 by="word"
-                once>
+                once={true}>
                 Hai problemi con il tuo computer? Fast Riparazione Pc ha la soluzione al tuo problema.
               </TextAnimate>
               <TextAnimate
@@ -147,11 +150,10 @@ function App() {
                 delay={0.6}
                 as="h3"
                 by="word"
-                once>
+                once={true}>
                 Con un’esperienza di ben 11 anni nel campo, e dispone dei migliori tecnici informatici, Offrendo un servizio a 360°, con un ottimo rapporto qualità prezzo.
               </TextAnimate>
             </div>
-
             <BentoGrid className="lg:grid-cols-3">
               {features.map((feature) => (
                 <BentoCard
@@ -161,6 +163,35 @@ function App() {
                 />
               ))}
             </BentoGrid>
+          </div>
+        </section>
+        <section id="all-services" className="relative max-w-5xl grid p-8 max-sm:py-16 min-h-svh mx-auto border-t border-ring/10 rounded-2xl pb-10 overflow-hidden">
+          <div className="flex flex-col justify-center gap-8">
+            <div className="flex flex-col gap-4 max-w-3xl">
+              <div className="flex w-fit items-center gap-1.5 p-1 px-1.5 pr-2 rounded-full bg-preset text-xs">
+                <Package weight="fill" size={16} /> Tutti i servizi
+              </div>
+              <TextAnimate
+                className="text-3xl font-medium text-gray-100 max-w-[820px] leading-[32px] lg:text-4xl sm:leading-[38px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black"
+                animation="blurInUp"
+                as="h3"
+                delay={0.3}
+                by="word"
+                once={true}>
+                Tutti i nostri servizi informatici
+              </TextAnimate>
+              <TextAnimate
+                className="text-gray-300/90 text-md font-normal sm:text-lg tracking-[-1px] max-w-[680px]"
+                animation="blurInUp"
+                delay={0.6}
+                as="h3"
+                by="word"
+                once={true}>
+                Dalla formattazione del sistema alla riparazione hardware, offriamo soluzioni complete e personalizzate per ogni esigenza. Scopri tutti i nostri servizi professionali pensati per privati e aziende.
+              </TextAnimate>
+            </div>
+            <AllServiceSection />
+
           </div>
         </section>
 
@@ -179,7 +210,7 @@ function App() {
               as="h3"
               delay={0.3}
               by="word"
-              once>
+              once={true}>
               Scopri di più su chi siamo
             </TextAnimate>
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-2 text-start">
@@ -212,7 +243,7 @@ function App() {
                 as="h3"
                 delay={0.3}
                 by="word"
-                once>
+                once={true}>
                 Scopri di più su chi siamo
               </TextAnimate>
               <div className="grid gap-4 sm:gap-2 text-start">

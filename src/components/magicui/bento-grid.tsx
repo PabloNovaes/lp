@@ -86,18 +86,22 @@ const BentoCard = ({
       {...props}
     >
       {background && <div>{background}</div>}
-      <div className="pointer-events-none z-10 transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
+      <div className="pointer-events-none z-10 transform-gpu flex-col gap-2 p-6 transition-all duration-300 group-hover:-translate-y-10">
         {imageIcon && (
           <div className="size-12 grid place-content-center relative mb-3">
             <img src={imageIcon || "/placeholder.svg"} alt="" className="w-full object-cover relative z-10" />
             {/* <img src={imageIcon || "/placeholder.svg"} alt="" className="w-full object-cover blur-lg scale-125 absolute opacity-80 z-0 dark:opacity-30 animate-pulse transition-all" /> */}
           </div>
         )}
-        {Icon && <Icon weight="fill" className="text-blue-500 h-8 w-8 origin-left transform-gpu transition-all duration-300 ease-in-out group-hover:scale-75" />}
-        <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
+        {Icon && (
+          <div className="relative grid place-content-center w-10 mb-2">
+            <Icon weight="fill" className="relative z-10 text-blue-500 h-11 w-11 origin-left transform-gpu transition-all duration-300 ease-in-out group-hover:scale-75  bg-gray-900 rounded-xl p-2.5" />
+          </div>
+        )}
+        <h3 className="text-lg font-semibold text-neutral-700 dark:text-neutral-300">
           {name}
         </h3>
-        <p className="max-w-lg text-neutral-400">{description}</p>
+        <p className="max-w-lg text-sm text-neutral-400">{description}</p>
       </div>
 
       <div
@@ -105,7 +109,7 @@ const BentoCard = ({
           "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100",
         )}
       >
-        <Button variant="ghost" asChild size="sm" className="pointer-events-auto">
+        <Button variant="ghost" asChild size="sm" className="pointer-events-auto rounded-full">
           <a href={href}>
             {cta}
             <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />

@@ -90,7 +90,7 @@ const MobileMenu = memo(
                     <div className="flex items-center w-full max-w-5xl m-auto justify-end">
                         <button
                             className={cn(
-                                "z-20 focus:outline-none flex flex-col size-[60px] justify-center items-center transition-all duration-300 border-ring/20",
+                                "z-20 focus:outline-none flex flex-col size-[50px] justify-center items-center transition-all duration-300 border-ring/20",
                                 "bg-black/20 border rounded-full backdrop-blur-sm"
                             )}
                             onClick={() => setIsMenuOpen((prev) => !prev)}
