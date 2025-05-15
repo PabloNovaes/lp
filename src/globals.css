@@ -269,6 +269,17 @@
     @apply text-black bg-white shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.2)];
   }
 
+  .animated {
+    will-change: transform, opacity;
+  }
+
+  p,
+  h1,
+  h2,
+  h3 {
+    will-change: transform, opacity;
+  }
+
   @keyframes spinBlob {
     0% {
       transform: rotate(0deg) scale(2);

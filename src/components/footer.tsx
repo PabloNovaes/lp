@@ -22,10 +22,10 @@ export function Footer() {
                                     variant="outline"
                                     size="icon"
                                     asChild
-                                    className="w-10 h-10 border-slate-500/10 rounded-full bg-slate-800/20 hover:bg-[#46c254] hover:text-white transition-all duration-300"
+                                    className="w-10 h-10 border-slate-300/10 rounded-full bg-slate-800/80 hover:bg-[#46c254] hover:text-white transition-all duration-300"
                                 >
                                     <a
-                                        href="https://wa.me/393338343528"
+                                        href={`https://wa.me/393338343528?text=${encodeURIComponent("Buongiorno, ho trovato il vostro sito web e desidero ricevere ulteriori informazioni.")}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label="Contattaci su WhatsApp"
@@ -39,7 +39,7 @@ export function Footer() {
                                     variant="outline"
                                     size="icon"
                                     asChild
-                                    className="w-10 h-10 border-slate-500/10 rounded-full bg-slate-800/20 hover:bg-gradient-to-b from-[#833ab4] via-[#fd1d1d]/90 to-[#fcb045] hover:text-white transition-all duration-300"
+                                    className="w-10 h-10 border-slate-300/10 rounded-full bg-slate-800/80 hover:bg-gradient-to-b from-[#833ab4] via-[#fd1d1d]/90 to-[#fcb045] hover:text-white transition-all duration-300"
                                 >
                                     <a
                                         href="https://www.instagram.com/ifaststore_fastriparazione/"
@@ -56,7 +56,7 @@ export function Footer() {
                                     variant="outline"
                                     size="icon"
                                     asChild
-                                    className="w-10 h-10 border-slate-500/10 rounded-full bg-slate-800/20 hover:bg-[#e34134] hover:text-white transition-all duration-300"
+                                    className="w-10 h-10 border-slate-300/10 rounded-full bg-slate-800/80 hover:bg-[#e34134] hover:text-white transition-all duration-300"
                                 >
                                     <a
                                         href="mailto:fastriparazionepc@gmail.com "

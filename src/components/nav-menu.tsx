@@ -85,7 +85,7 @@ const MobileMenu = memo(
         scope: React.RefObject<HTMLElement>
     }) => {
         return (
-            <div className="w-full z-[100] fixed top-0 left-0">
+            <div className="w-full z-[100] fixed top-0 left-0 min-[500px]:hidden">
                 <header className="flex text-primary relative h-[60px] items-center border-ring/10 transition-all duration-200 pr-2 pt-2" ref={scope}>
                     <div className="flex items-center w-full max-w-5xl m-auto justify-end">
                         <button
@@ -176,12 +176,12 @@ const DesktopMenu = memo(
         showMenu: boolean
     }) => {
         return (
-            <header className="w-full fixed h-fit top-0 py-6 flex justify-center z-[100]">
-                <AnimatePresence>
-                    <motion.nav
+            <header className="w-full fixed h-fit top-0 py-6 justify-center z-[100] hidden min-[500px]:flex">
+                <AnimatePresence mode="wait">
+                    {showMenu && <motion.nav
                         variants={menuBarVariants}
                         initial="hidden"
-                        animate={showMenu ? "visible" : "hidden"}
+                        animate={"visible"}
                         exit="hidden"
                         className="text-black flex items-center gap-3"
                     >
@@ -198,7 +198,7 @@ const DesktopMenu = memo(
                             ))}
                         </ul>
 
-                    </motion.nav>
+                    </motion.nav>}
                 </AnimatePresence>
             </header>
         )
@@ -246,9 +246,11 @@ export function NavMenu({ navLinks, mobileBreakpoint = 500 }: NavMenuProps) {
         }
     }, [isMenuOpen])
 
-    if (isMobile) {
-        return <MobileMenu show={showMenu} navLinks={navLinks} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scope={scope} />
-    }
+    return (
+        <>
+            <MobileMenu show={showMenu} navLinks={navLinks} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scope={scope} />
+            <DesktopMenu navLinks={navLinks} showMenu={showMenu} />
+        </>
+    )
 
-    return <DesktopMenu navLinks={navLinks} showMenu={showMenu} />
 }

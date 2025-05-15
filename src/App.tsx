@@ -167,7 +167,7 @@ function App() {
         </section>
         <section id="all-services" className="relative max-w-5xl grid p-8 max-sm:py-16 min-h-svh mx-auto border-t border-ring/10 rounded-2xl pb-10 overflow-hidden">
           <div className="flex flex-col justify-center gap-8">
-            <div className="flex flex-col gap-4 max-w-3xl">
+            <div className="flex flex-col gap-4 max-w-3xl will-change-transform">
               <div className="flex w-fit items-center gap-1.5 p-1 px-1.5 pr-2 rounded-full bg-preset text-xs">
                 <Package weight="fill" size={16} /> Tutti i servizi
               </div>
