@@ -19,7 +19,7 @@ export const springConfig = {
     stiffness: 500,
     damping: 50,
     mass: 2,
-}
+} as const
 
 export function SaveButton({ state = "initial", onSave, className, content, successContent, ...props }: SaveButtonProps) {
     const [currentState, setCurrentState] = useState(state)
