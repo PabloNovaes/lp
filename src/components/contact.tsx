@@ -67,14 +67,13 @@ export function ContactForm() {
     }
 
     const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
+        hidden: { y: 14, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1,
             transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 15,
+                duration: 0.4,
+                ease: "easeOut",
             },
         },
     }

@@ -85,17 +85,18 @@ const BentoCard = ({
       )}
       {...props}
     >
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sky-500/40 to-transparent" />
       {background && <div>{background}</div>}
       <div className="pointer-events-none z-10 transform-gpu flex-col gap-2 p-6 transition-all duration-300 group-hover:-translate-y-10">
         {imageIcon && (
-          <div className="size-12 grid place-content-center relative mb-3">
-            <img src={imageIcon || "/placeholder.svg"} alt="" className="w-full object-cover relative z-10" />
-            {/* <img src={imageIcon || "/placeholder.svg"} alt="" className="w-full object-cover blur-lg scale-125 absolute opacity-80 z-0 dark:opacity-30 animate-pulse transition-all" /> */}
+          <div className="relative size-14 grid place-content-center mb-4">
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-sky-500/15 to-blue-700/10 border border-sky-500/20" />
+            <img src={imageIcon} alt="" className="size-7 object-contain relative z-10 mx-auto" />
           </div>
         )}
         {Icon && (
           <div className="relative grid place-content-center w-10 mb-2">
-            <Icon weight="fill" className="relative z-10 text-blue-500 h-11 w-11 origin-left transform-gpu transition-all duration-300 ease-in-out group-hover:scale-75  bg-gray-800/80 border border-ring/20 rounded-xl p-2.5" />
+            <Icon weight="fill" className="relative z-10 text-blue-400 h-11 w-11 origin-left transform-gpu transition-all duration-300 ease-in-out group-hover:scale-75 bg-sky-950/60 border border-sky-500/20 rounded-xl p-2.5" />
           </div>
         )}
         <h3 className="text-lg font-semibold text-neutral-700 dark:text-neutral-300">
@@ -116,7 +117,7 @@ const BentoCard = ({
           </a>
         </Button>
       </div>
-      <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
+      <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-sky-500/3 group-hover:dark:bg-sky-900/10" />
     </motion.div>
   );
 };

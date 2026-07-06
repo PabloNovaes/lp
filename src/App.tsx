@@ -1,11 +1,15 @@
 import logo from "@/assets/logo.svg";
 import mockup from "@/assets/mockup.svg";
-import { ChatCircleDots, Package, Star } from "@phosphor-icons/react";
-import { AnimatePresence, motion } from "motion/react";
-import { BentoCard, BentoGrid } from "./components/magicui/bento-grid";
-import { defaultItemAnimationVariants, TextAnimate } from './components/magicui/text-animate';
+import {
+  ChatCircleDots,
+  Package,
+  ShieldCheck,
+  Star,
+  Wrench,
+} from "@phosphor-icons/react";
+import { motion } from "motion/react";
+
 import { NavMenu } from "./components/nav-menu";
-import { cn } from "./lib/utils";
 
 import browsers from "@/assets/browsers.svg";
 import currency from "@/assets/currency.svg";
@@ -13,61 +17,53 @@ import gear from "@/assets/gear.svg";
 import { AllServiceSection } from "./components/all-services-section";
 import { ContactForm } from "./components/contact";
 import { ContactButton } from "./components/contact-button";
+import { FadeIn } from "./components/fade-in";
 import { Footer } from "./components/footer";
+import { HowItWorks } from "./components/how-it-works";
 import { PriceCard } from "./components/price-card";
+import { TrustBar } from "./components/trust-bar";
+import { WhyUsGrid } from "./components/why-us-grid";
 import { nav_links } from "./constants";
-
 
 const features = [
   {
-    imageIcon: browsers,
-    name: "Creazione Siti Web",
-    description: "Creiamo il tuo Sito da Zero, Siti Web su Misura, e-commerce. Ottimizzati per i motori di ricerca.",
-    href: "https://wa.me/393338343528?text=Ciao%2C%20vorrei%20saperne%20di%20pi%C3%B9%20sul%20servizio%20di%20Creazione%20Siti%20Web.",
+    imageIcon: gear,
+    name: "Riparazione PC & Assistenza Software",
+    description:
+      "Interveniamo direttamente a domicilio per risolvere qualsiasi problema hardware o software su computer desktop, workstation e notebook di ogni marca.",
+    href: "https://wa.me/393338343528?text=Ciao%2C%20vorrei%20saperne%20di%20pi%C3%B9%20sul%20servizio%20di%20Riparazione%20PC.",
     cta: "Richiedere il servizio",
   },
   {
-    imageIcon: gear,
-    name: "Riparazione & Assistenza",
-    description: "Offriamo assistenza e riparazione pc a domicilio sia a privati che aziende in tutto il territorio di Milano.",
-    href: "https://wa.me/393338343528?text=Ciao%2C%20vorrei%20saperne%20di%20pi%C3%B9%20sul%20servizio%20di%20Riparazione%20e%20Assistenza.",
+    imageIcon: browsers,
+    name: "Server & NAS Aziendali",
+    description:
+      "Installazione, configurazione e manutenzione di server Windows/Linux e sistemi NAS Synology/QNAP per piccole e medie imprese.",
+    href: "https://wa.me/393338343528?text=Ciao%2C%20vorrei%20saperne%20di%20pi%C3%B9%20sul%20servizio%20di%20Server%20e%20NAS.",
     cta: "Richiedere il servizio",
   },
   {
     imageIcon: currency,
-    name: "Vendita iPhone/PC",
-    description: "Abbiamo il nostro e-commerce per la vendita di prodotti informatici come iPhone, computer e molto altro, tutto a un ottimo prezzo.",
-    href: "https://wa.me/393338343528?text=Ciao%2C%20vorrei%20saperne%20di%20pi%C3%B9%20sul%20servizio%20di%20Vendita%20iPhone%2FPC.",
+    name: "Reti, Wi-Fi & Sicurezza",
+    description:
+      "Configurazione router, firewall e VPN aziendali. Protezione da virus, malware e ransomware per garantire la continuità operativa.",
+    href: "https://wa.me/393338343528?text=Ciao%2C%20vorrei%20saperne%20di%20pi%C3%B9%20sul%20servizio%20di%20Reti%20e%20Sicurezza.",
     cta: "Richiedere il servizio",
   },
 ];
 
-const MotionText = ({ children, className = "text-sm", delay = 0.6 }: { children: string, className?: string, delay?: number }) => (
-  <TextAnimate
-    className={cn('text-gray-300/90 font-normal sm:text-lg tracking-[-1px] max-w-[680px]', className)}
-    animation="blurInUp"
-    delay={delay}
-    by="word"
-    as={'h3'}
-    once={true}>
-    {children}
-  </TextAnimate>
-)
+const heroStats = [
+  { value: "10+", label: "Anni di esperienza" },
+  { value: "500+", label: "Clienti serviti" },
+  { value: "< 2h", label: "Tempo di intervento" },
+];
 
 function App() {
-
   return (
     <>
       {/* Background layers */}
-      {/* <div className="fixed inset-0 w-full h-full m-auto blur-[100px]">
-        <div className="fixed left-0 top-0 w-full h-full bg-black scale-[.8]">
-          <div className="blob rounded-full" />
-        </div>
-      </div> */}
-      <div className='bg-sky-800 blur-[130px] sm:blur-[180px] size-[250px] sm:size-[400px] rounded-full -left-20 -top-20 fixed'></div>
-      <div className='bg-sky-800 blur-[130px] sm:blur-[180px] size-[250px] sm:size-[400px] rounded-full -right-20 -bottom-20 fixed'></div>
-
-      <div className="fixed left-0 bottom-0 w-full h-screen bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] bg-repeat bg-[length:128px] opacity-[0.09] rounded-none" />
+      <div className="fixed inset-0 h-screen bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(14,165,233,0.16),transparent)]" />
+      <div className="fixed left-0 bottom-0 w-full h-screen bg-[url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png')] bg-repeat bg-[length:128px] opacity-[0.07] rounded-none" />
       {/* Background layers */}
 
       <ContactButton />
@@ -76,192 +72,316 @@ function App() {
         <NavMenu navLinks={nav_links} />
 
         {/* Hero Section */}
-        <section id="hero" className="relative flex flex-col items-center gap-10 pt-[88px] mx-auto h-svh sm:px-20 text-white overflow-hidden">
-          <AnimatePresence>
-            <div className="grid gap-4 text-center px-8">
-              <motion.div
-                variants={defaultItemAnimationVariants.blurInUp.item}
-                initial={{ ...defaultItemAnimationVariants.blurInUp.item["hidden"], y: 30 }}
-                animate={{ ...defaultItemAnimationVariants.blurInUp.item["show"], transition: { delay: .15 } }}
-                className="mx-auto mb-2">
-                <img src={logo} alt="" className="h-8 mx-auto" />
-              </motion.div>
-              <TextAnimate
-                className="font-medium text-[30px] leading-[32px] sm:text-4xl sm:leading-[38px] lg:text-5xl lg:leading-[44px] tracking-[-1px] max-w-[680px] [&_span]:bg-gradient-to-b from-neutral-400 to-black"
-                animation="blurInUp"
-                delay={0.4}
-                as="h1"
-                by="word"
-                once={true}>
-                Assistenza e Riparazioni Computer a Milano
-              </TextAnimate>
-              <TextAnimate
-                className="text-zinc-300 text-md lg:text-xl lg:leading-[20px] tracking-[-1px] max-w-[500px] mx-auto"
-                animation="blurInUp"
-                delay={0.6}
-                by="word"
-                once={true}>
-                Fast Riparazione Pc nasce con l’obiettivo di offrire riparazione e assistenza pc a domicilio a Milano a Privati e Aziende.
-              </TextAnimate>
-            </div>
+        <section
+          id="hero"
+          className="relative grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] items-center gap-8 lg:gap-16 max-w-6xl w-full pt-[110px] pb-16 lg:pt-[88px] lg:pb-0 mx-auto min-h-svh px-6 sm:px-10 lg:px-8 text-white overflow-hidden">
+          <div className="grid gap-4 text-center lg:text-left">
+            <FadeIn
+              as="div"
+              delay={0.1}
+              duration={0.5}
+              className="mx-auto lg:mx-0 mb-2">
+              <img src={logo} alt="" className="h-8 mx-auto lg:mx-0" />
+            </FadeIn>
+            <FadeIn
+              as="h1"
+              delay={0.2}
+              duration={0.5}
+              className="font-extrabold text-[36px] leading-10 sm:text-5xl sm:leading-13.5 lg:text-[58px] lg:leading-15 tracking-[-2px] max-w-175 mx-auto lg:mx-0">
+              Assistenza Informatica a Domicilio Milano
+            </FadeIn>
+            <FadeIn
+              as="p"
+              delay={0.3}
+              duration={0.5}
+              className="text-zinc-400 text-sm sm:text-base lg:text-lg tracking-[-0.5px] max-w-120 mx-auto lg:mx-0 leading-relaxed">
+              Tecnici informatici specializzati per privati, professionisti e
+              aziende. Interventi rapidi direttamente presso la tua sede a
+              Milano e provincia.
+            </FadeIn>
+            <FadeIn
+              delay={0.4}
+              duration={0.5}
+              className="flex gap-3 justify-center lg:justify-start flex-wrap mt-1">
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .querySelector("section#contact")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="px-6 py-2.5 rounded-full bg-sky-600 hover:bg-sky-500 text-white text-sm font-semibold transition-colors duration-200 cursor-pointer">
+                  Richiedi Intervento
+                </a>
+                <a
+                  href="#services"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .querySelector("section#services")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="px-6 py-2.5 rounded-full bg-white/[0.07] border border-white/12 hover:bg-white/12 text-white/70 text-sm font-medium transition-colors duration-200 cursor-pointer">
+                  Scopri i Servizi
+                </a>
+            </FadeIn>
+            <FadeIn
+              delay={0.5}
+              duration={0.5}
+              className="flex items-center justify-center lg:justify-start pt-4 mt-1 border-t border-white/8">
+              {heroStats.map(({ value, label }, i) => (
+                <div key={label} className="flex items-center">
+                  {i > 0 && (
+                    <span className="w-px h-7 bg-white/10 block mx-5 sm:mx-8" />
+                  )}
+                  <div className="flex flex-col items-center lg:items-start gap-0.5">
+                    <span className="text-xl sm:text-2xl font-extrabold text-white tracking-tight tabular-nums">
+                      {value}
+                    </span>
+                    <span className="text-[10px] sm:text-xs text-white/40 tracking-widest uppercase">
+                      {label}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </FadeIn>
+          </div>
 
-            <motion.div
-              variants={defaultItemAnimationVariants.blurInUp.container}
-              className="flex justify-center items-end h-full">
-              <motion.img
-                src={mockup}
-                alt=""
-                variants={defaultItemAnimationVariants.blurInUp.item}
-                initial={{ ...defaultItemAnimationVariants.blurInUp.item["hidden"], y: 30 }}
-                animate={{ ...defaultItemAnimationVariants.blurInUp.item["show"], transition: { delay: .65 } }}
-                className="z-20 h-full pl-[24px] drop"
-                style={{
-                  maskImage: "linear-gradient(to bottom,rgb(0, 0, 0) 50%,rgba(255, 255, 255, 0))",
-                  filter: "drop-shadow(10px 10px 10px white)"
-                }}
-              />
-            </motion.div>
-
-          </AnimatePresence>
+          <FadeIn
+            delay={0.25}
+            duration={0.6}
+            className="relative flex justify-center lg:justify-end items-end lg:items-center h-[340px] sm:h-[440px] lg:h-[560px]">
+            <img
+              src={mockup}
+              alt=""
+              className="z-20 h-full drop"
+              style={{
+                maskImage:
+                  "linear-gradient(to bottom,rgb(0, 0, 0) 70%,rgba(255, 255, 255, 0))",
+                filter: "drop-shadow(0px 4px 32px rgba(14, 165, 233, 0.22))",
+              }}
+            />
+            <FadeIn
+              delay={0.55}
+              duration={0.45}
+              className="hidden sm:flex z-30 absolute top-4 lg:top-10 left-0 lg:-left-6 items-center gap-2.5 bg-black/40 backdrop-blur-xl border border-white/12 rounded-2xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.35)] whitespace-nowrap">
+              <div className="flex items-center justify-center size-8 rounded-full bg-sky-500/20 border border-sky-500/30 text-sky-400 shrink-0">
+                <ShieldCheck weight="fill" className="size-4" />
+              </div>
+              <div className="text-left">
+                <p className="text-xs font-bold text-white leading-tight">
+                  Tecnici certificati
+                </p>
+                <p className="text-[11px] text-white/45 leading-tight">
+                  Milano e provincia
+                </p>
+              </div>
+            </FadeIn>
+          </FadeIn>
         </section>
 
-        {/* Divider */}
-        <div className="w-full max-w-5xl h-px mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+        <TrustBar />
 
         {/* Services Section */}
-        <section id="services" className="relative max-w-5xl grid p-8 max-sm:py-16 min-h-svh mx-auto border-t border-ring/10 rounded-2xl pb-10 overflow-hidden">
-          <div className="flex flex-col justify-center gap-8">
-            <div className="flex flex-col gap-4 max-w-3xl">
+        <section
+          id="services"
+          className="relative max-w-5xl px-6 py-24 mx-auto w-full">
+          <div className="flex flex-col gap-16">
+            <div className="flex flex-col gap-5 max-w-2xl">
               <div className="flex w-fit items-center gap-1.5 p-1 px-1.5 pr-2 rounded-full bg-preset text-xs">
                 <Package weight="fill" size={16} /> Servizi Principali
               </div>
-              <TextAnimate
-                className="text-3xl font-medium text-gray-100 max-w-[820px] leading-[32px] lg:text-4xl sm:leading-[38px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black"
-                animation="blurInUp"
-                as="h3"
-                delay={0.3}
-                by="word"
-                once={true}>
-                Hai problemi con il tuo computer? Fast Riparazione Pc ha la soluzione al tuo problema.
-              </TextAnimate>
-              <TextAnimate
-                className="text-gray-300/90 text-md font-normal sm:text-lg tracking-[-1px] max-w-[680px]"
-                animation="blurInUp"
-                delay={0.6}
-                as="h3"
-                by="word"
-                once={true}>
-                Con un’esperienza di ben 11 anni nel campo, e dispone dei migliori tecnici informatici, Offrendo un servizio a 360°, con un ottimo rapporto qualità prezzo.
-              </TextAnimate>
+              <FadeIn
+                className="text-3xl font-extrabold text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-2px]"
+                as="h2"
+                delay={0.15}>
+                Hai problemi con il computer, la rete o il server?
+              </FadeIn>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.4 }}
+                className="text-white/50 text-base leading-relaxed">
+                Supporto tecnico hardware e software per PC, Mac, server, NAS e
+                reti aziendali — direttamente a domicilio.
+              </motion.p>
             </div>
-            <BentoGrid className="lg:grid-cols-3">
-              {features.map((feature) => (
-                <BentoCard
-                  key={feature.name}
-                  {...feature}
-                  className="bg-black/20 backdrop-blur-3xl border border-ring/20 rounded-4xl [&_h3]:text-white [&_p]:text-white/70"
-                />
+
+            <div className="flex flex-col gap-3">
+              {features.map(({ name, description, href }, i) => (
+                <motion.a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                  className="group flex items-center gap-5 sm:gap-8 p-5 sm:p-7 rounded-2xl bg-white/[0.03] border border-white/8 hover:bg-sky-950/40 hover:border-sky-500/25 transition-all duration-300">
+                  <span className="hidden sm:block text-7xl font-extrabold text-white/[0.04] select-none tabular-nums w-20 shrink-0 leading-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 tracking-tight">
+                      {name}
+                    </h3>
+                    <p className="text-sm text-white/45 leading-relaxed">
+                      {description}
+                    </p>
+                  </div>
+                  <span className="text-white/20 group-hover:text-sky-400 transition-all duration-300 text-xl shrink-0 ml-2 group-hover:translate-x-1 inline-block">
+                    →
+                  </span>
+                </motion.a>
               ))}
-            </BentoGrid>
+            </div>
           </div>
         </section>
-        <section id="all-services" className="relative max-w-5xl grid p-8 max-sm:py-16 min-h-svh mx-auto border-t border-ring/10 rounded-2xl pb-10 overflow-hidden">
-          <div className="flex flex-col justify-center gap-8">
-            <div className="flex flex-col gap-4 max-w-3xl will-change-transform">
+        <section
+          id="all-services"
+          className="relative max-w-5xl px-6 py-24 mx-auto w-full">
+          <div className="flex flex-col gap-14">
+            <div className="flex flex-col gap-5 max-w-2xl">
               <div className="flex w-fit items-center gap-1.5 p-1 px-1.5 pr-2 rounded-full bg-preset text-xs">
                 <Package weight="fill" size={16} /> Tutti i servizi
               </div>
-              <TextAnimate
-                className="text-3xl font-medium text-gray-100 max-w-[820px] leading-[32px] lg:text-4xl sm:leading-[38px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black"
-                animation="blurInUp"
-                as="h3"
-                delay={0.3}
-                by="word"
-                once={true}>
-                Tutti i nostri servizi informatici
-              </TextAnimate>
-              <TextAnimate
-                className="text-gray-300/90 text-md font-normal sm:text-lg tracking-[-1px] max-w-[680px]"
-                animation="blurInUp"
-                delay={0.6}
-                as="h3"
-                by="word"
-                once={true}>
-                Dalla formattazione del sistema alla riparazione hardware, offriamo soluzioni complete e personalizzate per ogni esigenza. Scopri tutti i nostri servizi professionali pensati per privati e aziende.
-              </TextAnimate>
+              <FadeIn
+                className="text-3xl font-extrabold text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-2px]"
+                as="h2"
+                delay={0.15}>
+                Tutti i nostri servizi
+              </FadeIn>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.4 }}
+                className="text-white/50 text-base leading-relaxed">
+                Hardware, software, server, reti e sicurezza — soluzioni per
+                privati e aziende a Milano. Scegli una categoria per vedere
+                tutti i servizi disponibili.
+              </motion.p>
             </div>
             <AllServiceSection />
-
           </div>
         </section>
-
-        {/* Divider */}
-        <div className="w-full max-w-5xl h-px mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
         {/* About Section */}
-        <section id="about" className="max-w-5xl p-8 max-sm:py-16 sm:h-svh grid place-content-center mx-auto w-full border-t border-ring/10 rounded-2xl">
-          <div className="flex flex-col gap-4">
-            <div className="flex w-fit items-center gap-1 p-1 px-1.5 pr-2 text-xs bg-preset rounded-full">
-              <Star weight="fill" size={14} /> Chi siamo
+        <section id="about" className="max-w-5xl px-6 py-24 mx-auto w-full">
+          <div className="flex flex-col gap-14">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+              <div className="flex flex-col gap-5 max-w-lg">
+                <div className="flex w-fit items-center gap-1 p-1 px-1.5 pr-2 text-xs bg-preset rounded-full">
+                  <Star weight="fill" size={14} /> Perché Sceglierci
+                </div>
+                <FadeIn
+                  className="text-[44px] sm:text-[56px] lg:text-[64px] font-extrabold text-white leading-none tracking-[-3px]"
+                  as="h2"
+                  delay={0.15}>
+                  Perché noi?
+                </FadeIn>
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.45, duration: 0.4 }}
+                  className="text-white/50 text-base leading-relaxed">
+                  Operiamo a Milano e provincia. Un unico punto di riferimento
+                  per ogni esigenza informatica — a casa, in ufficio o in
+                  azienda.
+                </motion.p>
+              </div>
+              <motion.a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document
+                    .querySelector("section#contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6, duration: 0.35 }}
+                className="w-fit shrink-0 px-6 py-2.5 rounded-full bg-sky-600 hover:bg-sky-500 text-white text-sm font-semibold transition-colors duration-200 cursor-pointer">
+                Richiedi Intervento →
+              </motion.a>
             </div>
-            <TextAnimate
-              className="text-3xl font-medium text-gray-100 max-w-[820px] leading-[32px] lg:text-4xl sm:leading-[38px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black"
-              animation="blurInUp"
-              as="h3"
-              delay={0.3}
-              by="word"
-              once={true}>
-              Scopri di più su chi siamo
-            </TextAnimate>
-            <div className="grid sm:grid-cols-2 gap-4 sm:gap-2 text-start">
-              <MotionText className="text-md" delay={0.4}>
-                Fast Riparazione Pc nasce con l’obiettivo di offrire riparazione PC e assistenza a domicilio su tutto il territorio di Milano, sia a privati che ad aziende.
-              </MotionText>
-              <MotionText className="text-md" delay={0.8}>
-                Vantiamo un’esperienza di ben 7 anni e disponiamo dei migliori tecnici informatici specializzati, che svolgono un’eccellente assistenza direttamente a domicilio.
-              </MotionText>
-              <MotionText className="text-md" delay={1.2}>
-                Offriamo un servizio a 360°, con un ottimo rapporto qualità-prezzo. Lavoriamo con tutte le marche e i modelli disponibili sul mercato, svolgendo assistenza e riparazione hardware e software, sia per Computer che per Mac, sempre a domicilio.
-              </MotionText>
-            </div>
+
+            <WhyUsGrid />
           </div>
         </section>
 
-        {/* Divider */}
-        <div className="w-full max-w-5xl h-px mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+        {/* How It Works Section */}
+        <section
+          id="how-it-works"
+          className="max-w-5xl px-6 py-24 mx-auto w-full">
+          <div className="flex flex-col gap-14">
+            <div className="flex flex-col gap-5 max-w-2xl">
+              <div className="flex w-fit items-center gap-1 p-1 px-1.5 pr-2 text-xs bg-preset rounded-full">
+                <Wrench weight="fill" size={14} /> Come Funziona
+              </div>
+              <FadeIn
+                className="text-3xl font-extrabold text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-2px]"
+                as="h2"
+                delay={0.15}>
+                Dal contatto alla soluzione
+              </FadeIn>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.4 }}
+                className="text-white/50 text-base leading-relaxed">
+                Un processo semplice e trasparente, pensato per farti
+                risparmiare tempo.
+              </motion.p>
+            </div>
+            <HowItWorks />
+          </div>
+        </section>
 
         {/* Contact Section */}
-        <section id="contact" className="max-w-5xl p-8 max-sm:py-16 grid place-content-center mx-auto w-full border-t border-ring/10 rounded-2xl min-h-svh">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="flex flex-col gap-4 w-full">
+        <section id="contact" className="max-w-5xl px-6 py-24 mx-auto w-full">
+          <div className="flex flex-col gap-12">
+            {/* Full-width heading */}
+            <div className="flex flex-col gap-5">
               <div className="flex w-fit items-center gap-1 p-1 px-1.5 pr-2 text-xs bg-preset rounded-full">
                 <ChatCircleDots weight="fill" size={14} /> Contattaci
               </div>
-              <TextAnimate
-                className="text-3xl font-medium text-gray-100 max-w-[820px] leading-[32px] lg:text-4xl sm:leading-[38px] tracking-[-1px] [&_span]:bg-gradient-to-b from-neutral-400 to-black"
-                animation="blurInUp"
-                as="h3"
-                delay={0.3}
-                by="word"
-                once={true}>
-                Scopri di più su chi siamo
-              </TextAnimate>
-              <div className="grid gap-4 sm:gap-2 text-start">
-                <MotionText className="text-md" delay={0.4}>
-                  Avete domande? Non esitate a contattarci direttamente. Il nostro team ti contatterà per aiutarti.
-                </MotionText>
-                <ContactForm />
-              </div>
+              <FadeIn
+                className="text-3xl font-extrabold text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-2px]"
+                as="h2"
+                delay={0.15}>
+                Pronti ad aiutarti. Sempre.
+              </FadeIn>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.4 }}
+                className="text-white/50 text-base leading-relaxed max-w-2xl">
+                Che si tratti di un computer lento, un server bloccato, una rete
+                instabile o un NAS da configurare — siamo pronti ad aiutarti con
+                assistenza professionale a domicilio.
+              </motion.p>
             </div>
 
-            <PriceCard />
+            {/* Form + Guarantees */}
+            <div className="grid md:grid-cols-2 gap-8 items-start">
+              <ContactForm />
+              <PriceCard />
+            </div>
           </div>
         </section>
 
         <Footer />
       </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
