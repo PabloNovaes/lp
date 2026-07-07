@@ -28,7 +28,7 @@ export function PriceCard() {
       transition={{ duration: 0.4 }}
       className="bg-black/20 backdrop-blur-3xl border border-white/10 p-8 rounded-3xl h-full flex flex-col gap-6">
       <div>
-        <h2 className="text-xl font-bold text-white mb-1.5">Il nostro impegno</h2>
+        <h2 className="text-xl font-semibold text-white mb-1.5">Il nostro impegno</h2>
         <p className="text-sm text-white/45 leading-relaxed">
           Quello che puoi aspettarti ogni volta che ci contatti.
         </p>

@@ -5,11 +5,11 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormMessage,
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -109,7 +109,7 @@ export function ContactForm() {
                         className="z-10 absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5"
                       />
                       <Input
-                        placeholder="Il tuo nome"
+                        placeholder="Nome / azienda"
                         className="bg-black/20 backdrop-blur-3xl border border-ring/20 text-white rounded-2xl placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500 transition-all duration-300 h-13 pl-10"
                         {...field}
                         value={formatUppercase(field.value)}
@@ -134,7 +134,7 @@ export function ContactForm() {
                         className="z-10 absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5"
                       />
                       <Input
-                        placeholder="La tua email"
+                        placeholder="Mail"
                         className="bg-black/20 backdrop-blur-3xl border border-ring/20 text-white rounded-2xl placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500 transition-all duration-300 h-13 pl-10"
                         {...field}
                       />
@@ -160,7 +160,7 @@ export function ContactForm() {
                         className="z-10 absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5 opacity-100"
                       />
                       <Input
-                        placeholder="Oggetto della richiesta"
+                        placeholder="Oggetto"
                         className="bg-black/20 backdrop-blur-3xl border border-ring/20 text-white rounded-2xl placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500 transition-all duration-300 h-13 pl-10"
                         {...field}
                         value={formatUppercase(field.value)}
@@ -181,7 +181,7 @@ export function ContactForm() {
                 <FormItem>
                   <FormControl>
                     <Textarea
-                      placeholder="Il tuo messaggio"
+                      placeholder="Messaggio"
                       className="min-h-[150px] bg-black/20 backdrop-blur-3xl border border-ring/20 text-white rounded-xl placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500 transition-all duration-300 resize-none"
                       {...field}
                     />

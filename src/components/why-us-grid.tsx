@@ -178,7 +178,7 @@ export function WhyUsGrid() {
 
               <h3
                 className={cn(
-                  "font-bold text-white tracking-tight",
+                  "font-semibold text-white tracking-tight",
                   featured ? "text-lg mb-2" : "text-sm mb-1.5",
                 )}>
                 {title}

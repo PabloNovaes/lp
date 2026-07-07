@@ -1,26 +1,35 @@
-import { ChatCircleText, Headset, MagnifyingGlass, Wrench } from "@phosphor-icons/react";
+import {
+  ChatCircleText,
+  Headset,
+  MagnifyingGlass,
+  Wrench,
+} from "@phosphor-icons/react";
 import { motion } from "motion/react";
 
 const steps = [
   {
     icon: ChatCircleText,
     title: "Contatto",
-    description: "Descrivi il problema al nostro tecnico via WhatsApp, telefono o form.",
+    description:
+      "Descrivi il problema al nostro tecnico via whatsapp, chiamata telefonica o form mail.",
   },
   {
     icon: MagnifyingGlass,
     title: "Diagnosi",
-    description: "Analizziamo la situazione e individuiamo la soluzione più efficace.",
+    description:
+      "Analizziamo la situazione e individuiamo la soluzione più efficace.",
   },
   {
     icon: Wrench,
     title: "Intervento",
-    description: "Risolviamo il problema a domicilio oppure da remoto, con preventivo chiaro.",
+    description:
+      "Risolviamo il problema a domicilio oppure da remoto, con preventivo chiaro.",
   },
   {
     icon: Headset,
     title: "Supporto",
-    description: "Verifichiamo il corretto funzionamento e restiamo disponibili dopo l'intervento.",
+    description:
+      "Verifichiamo il corretto funzionamento e restiamo disponibili dopo l'intervento.",
   },
 ];
 
@@ -41,12 +50,16 @@ export function HowItWorks() {
           </div>
           <div>
             <div className="flex items-baseline gap-2 mb-1.5">
-              <span className="text-xs font-bold text-sky-500/60 tabular-nums">
+              <span className="text-xs font-semibold text-sky-500/60 tabular-nums">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-base font-bold text-white tracking-tight">{title}</h3>
+              <h3 className="text-base font-semibold text-white tracking-tight">
+                {title}
+              </h3>
             </div>
-            <p className="text-sm text-white/45 leading-relaxed">{description}</p>
+            <p className="text-sm text-white/45 leading-relaxed">
+              {description}
+            </p>
           </div>
         </motion.div>
       ))}

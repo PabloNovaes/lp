@@ -75,19 +75,15 @@ function App() {
         <section
           id="hero"
           className="relative grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] items-center gap-8 lg:gap-16 max-w-6xl w-full pt-[110px] pb-16 lg:pt-[88px] lg:pb-0 mx-auto min-h-svh px-6 sm:px-10 lg:px-8 text-white overflow-hidden">
-          <div className="grid gap-4 text-center lg:text-left">
-            <FadeIn
-              as="div"
-              delay={0.1}
-              duration={0.5}
-              className="mx-auto lg:mx-0 mb-2">
-              <img src={logo} alt="" className="h-8 mx-auto lg:mx-0" />
+          <div className="grid gap-4 text-left">
+            <FadeIn as="div" delay={0.1} duration={0.5} className="mb-2">
+              <img src={logo} alt="" className="h-8" />
             </FadeIn>
             <FadeIn
               as="h1"
               delay={0.2}
               duration={0.5}
-              className="font-extrabold text-[36px] leading-10 sm:text-5xl sm:leading-13.5 lg:text-[58px] lg:leading-15 tracking-[-2px] max-w-175 mx-auto lg:mx-0">
+              className="font-regular text-[36px] leading-10 sm:text-5xl sm:leading-13.5 lg:text-[58px] lg:leading-15 tracking-[-2px] max-w-175 mx-auto lg:mx-0">
               Assistenza Informatica a Domicilio Milano
             </FadeIn>
             <FadeIn
@@ -102,29 +98,29 @@ function App() {
             <FadeIn
               delay={0.4}
               duration={0.5}
-              className="flex gap-3 justify-center lg:justify-start flex-wrap mt-1">
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .querySelector("section#contact")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="px-6 py-2.5 rounded-full bg-sky-600 hover:bg-sky-500 text-white text-sm font-semibold transition-colors duration-200 cursor-pointer">
-                  Richiedi Intervento
-                </a>
-                <a
-                  href="#services"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .querySelector("section#services")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="px-6 py-2.5 rounded-full bg-white/[0.07] border border-white/12 hover:bg-white/12 text-white/70 text-sm font-medium transition-colors duration-200 cursor-pointer">
-                  Scopri i Servizi
-                </a>
+              className="flex gap-3 justify-start sm:flex-wrap mt-1">
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document
+                    .querySelector("section#contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="px-5 py-2.5 rounded-full bg-sky-600 hover:bg-sky-500 text-white text-sm font-semibold transition-colors duration-200 cursor-pointer">
+                Richiedi Intervento
+              </a>
+              <a
+                href="#services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document
+                    .querySelector("section#services")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="px-5 py-2.5 rounded-full bg-white/[0.07] border border-white/12 hover:bg-white/12 text-white/70 text-sm font-semibold transition-colors duration-200 cursor-pointer">
+                Scopri i Servizi
+              </a>
             </FadeIn>
             <FadeIn
               delay={0.5}
@@ -136,7 +132,7 @@ function App() {
                     <span className="w-px h-7 bg-white/10 block mx-5 sm:mx-8" />
                   )}
                   <div className="flex flex-col items-center lg:items-start gap-0.5">
-                    <span className="text-xl sm:text-2xl font-extrabold text-white tracking-tight tabular-nums">
+                    <span className="text-xl sm:text-2xl font-medium text-white tracking-tight tabular-nums">
                       {value}
                     </span>
                     <span className="text-[10px] sm:text-xs text-white/40 tracking-widest uppercase">
@@ -170,7 +166,7 @@ function App() {
                 <ShieldCheck weight="fill" className="size-4" />
               </div>
               <div className="text-left">
-                <p className="text-xs font-bold text-white leading-tight">
+                <p className="text-xs font-medium text-white leading-tight">
                   Tecnici certificati
                 </p>
                 <p className="text-[11px] text-white/45 leading-tight">
@@ -193,7 +189,7 @@ function App() {
                 <Package weight="fill" size={16} /> Servizi Principali
               </div>
               <FadeIn
-                className="text-3xl font-extrabold text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-2px]"
+                className="text-3xl font-medium text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-1.5px]"
                 as="h2"
                 delay={0.15}>
                 Hai problemi con il computer, la rete o il server?
@@ -225,7 +221,7 @@ function App() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 tracking-tight">
+                    <h3 className="text-base sm:text-lg font-medium text-white mb-1.5 tracking-tight">
                       {name}
                     </h3>
                     <p className="text-sm text-white/45 leading-relaxed">
@@ -249,7 +245,7 @@ function App() {
                 <Package weight="fill" size={16} /> Tutti i servizi
               </div>
               <FadeIn
-                className="text-3xl font-extrabold text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-2px]"
+                className="text-3xl font-medium text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-1.5px]"
                 as="h2"
                 delay={0.15}>
                 Tutti i nostri servizi
@@ -278,7 +274,7 @@ function App() {
                   <Star weight="fill" size={14} /> Perché Sceglierci
                 </div>
                 <FadeIn
-                  className="text-[44px] sm:text-[56px] lg:text-[64px] font-extrabold text-white leading-none tracking-[-3px]"
+                  className="text-3xl font-medium text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-1.5px]"
                   as="h2"
                   delay={0.15}>
                   Perché noi?
@@ -306,7 +302,7 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, duration: 0.35 }}
-                className="w-fit shrink-0 px-6 py-2.5 rounded-full bg-sky-600 hover:bg-sky-500 text-white text-sm font-semibold transition-colors duration-200 cursor-pointer">
+                className="w-fit shrink-0 px-6 py-2.5 rounded-full bg-sky-600 hover:bg-sky-500 text-white text-sm font-medium transition-colors duration-200 cursor-pointer">
                 Richiedi Intervento →
               </motion.a>
             </div>
@@ -325,7 +321,7 @@ function App() {
                 <Wrench weight="fill" size={14} /> Come Funziona
               </div>
               <FadeIn
-                className="text-3xl font-extrabold text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-2px]"
+                className="text-3xl font-medium text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-1.5px]"
                 as="h2"
                 delay={0.15}>
                 Dal contatto alla soluzione
@@ -353,7 +349,7 @@ function App() {
                 <ChatCircleDots weight="fill" size={14} /> Contattaci
               </div>
               <FadeIn
-                className="text-3xl font-extrabold text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-2px]"
+                className="text-3xl font-medium text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-1.5px]"
                 as="h2"
                 delay={0.15}>
                 Pronti ad aiutarti. Sempre.

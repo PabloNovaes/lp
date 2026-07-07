@@ -88,7 +88,7 @@ export function AllServiceSection() {
         <Drawer open={isOpen} onOpenChange={handleOpenChange}>
           <DrawerContent className="bg-gray-950 border-white/10 text-white max-h-[85vh]">
             <DrawerHeader className="text-left">
-              <DrawerTitle className="text-white text-xl font-bold">
+              <DrawerTitle className="text-white text-xl font-semibold">
                 {currentCategory?.label}
               </DrawerTitle>
               <DrawerDescription className="text-white/40">
@@ -102,7 +102,7 @@ export function AllServiceSection() {
         <Dialog open={isOpen} onOpenChange={handleOpenChange}>
           <DialogContent className="bg-gray-950 border-white/10 text-white max-w-xl max-h-[80vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle className="text-white text-xl font-bold">
+              <DialogTitle className="text-white text-xl font-semibold">
                 {currentCategory?.label}
               </DialogTitle>
               <DialogDescription className="text-white/40">
