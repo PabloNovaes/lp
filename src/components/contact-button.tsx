@@ -50,6 +50,7 @@ export function ContactButton() {
                     initial="hidden"
                     animate="visible"
                     exit="hidden"
+                    aria-label="Contattaci su WhatsApp"
                     className="bg-white/8 backdrop-blur-sm p-2.5 fixed bottom-10 right-10 z-30 rounded-full border border-white/10 shadow-[0_0_24px_rgba(14,165,233,0.18),0_4px_16px_rgba(0,0,0,0.35)]" target="_blank" href={`https://wa.me/393338343528?text=${encodeURIComponent("Buongiorno, ho trovato il vostro sito web e desidero ricevere ulteriori informazioni.")}`}>
                     <WhatsApp className="size-10" />
                 </motion.a>

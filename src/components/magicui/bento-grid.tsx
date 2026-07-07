@@ -91,7 +91,7 @@ const BentoCard = ({
         {imageIcon && (
           <div className="relative size-14 grid place-content-center mb-4">
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-sky-500/15 to-blue-700/10 border border-sky-500/20" />
-            <img src={imageIcon} alt="" className="size-7 object-contain relative z-10 mx-auto" />
+            <img src={imageIcon} alt={name} className="size-7 object-contain relative z-10 mx-auto" />
           </div>
         )}
         {Icon && (
