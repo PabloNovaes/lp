@@ -63,7 +63,7 @@ const MobileMenu = memo(
             </FadeIn>
             <button
               className={cn(
-                "z-100 focus:outline-none flex flex-col size-[50px] justify-center items-center transition-all duration-300 border-ring/20 sticky",
+                "focus:outline-none flex flex-col size-[50px] justify-center items-center transition-all duration-300 border-ring/20 sticky",
                 "bg-black/20 border rounded-full backdrop-blur-sm",
               )}
               onClick={() => setIsMenuOpen((prev) => !prev)}
