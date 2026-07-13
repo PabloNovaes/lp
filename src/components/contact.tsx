@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ChatCircleText, Envelope, UserCircle } from "@phosphor-icons/react";
+import { Comment01Icon, Mail01Icon, UserCircleIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { motion, type Variant } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -103,8 +104,8 @@ export function ContactForm() {
                 <FormItem>
                   <FormControl>
                     <div className="relative">
-                      <UserCircle
-                        weight="fill"
+                      <HugeiconsIcon
+                        icon={UserCircleIcon}
                         size={22}
                         className="z-10 absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5"
                       />
@@ -128,8 +129,8 @@ export function ContactForm() {
                 <FormItem>
                   <FormControl>
                     <div className="relative">
-                      <Envelope
-                        weight="fill"
+                      <HugeiconsIcon
+                        icon={Mail01Icon}
                         size={22}
                         className="z-10 absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5"
                       />
@@ -154,8 +155,8 @@ export function ContactForm() {
                 <FormItem>
                   <FormControl>
                     <div className="relative">
-                      <ChatCircleText
-                        weight="fill"
+                      <HugeiconsIcon
+                        icon={Comment01Icon}
                         size={22}
                         className="z-10 absolute left-3 top-1/2 -translate-y-1/2 text-[#6a6a6a] h-5 w-5 opacity-100"
                       />

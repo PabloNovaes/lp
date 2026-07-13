@@ -1,32 +1,33 @@
 import {
-  ChatCircleText,
-  Headset,
-  MagnifyingGlass,
-  Wrench,
-} from "@phosphor-icons/react";
+  Comment01Icon,
+  HeadphonesIcon,
+  Search01Icon,
+  Wrench01Icon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { motion } from "motion/react";
 
 const steps = [
   {
-    icon: ChatCircleText,
+    icon: Comment01Icon,
     title: "Contatto",
     description:
       "Descrivi il problema al nostro tecnico via whatsapp, chiamata telefonica o form mail.",
   },
   {
-    icon: MagnifyingGlass,
+    icon: Search01Icon,
     title: "Diagnosi",
     description:
       "Analizziamo la situazione e individuiamo la soluzione più efficace.",
   },
   {
-    icon: Wrench,
+    icon: Wrench01Icon,
     title: "Intervento",
     description:
       "Risolviamo il problema a domicilio oppure da remoto, con preventivo chiaro.",
   },
   {
-    icon: Headset,
+    icon: HeadphonesIcon,
     title: "Supporto",
     description:
       "Verifichiamo il corretto funzionamento e restiamo disponibili dopo l'intervento.",
@@ -46,7 +47,7 @@ export function HowItWorks() {
           transition={{ delay: i * 0.1, duration: 0.4 }}
           className="relative flex flex-col gap-4 p-6 rounded-2xl bg-white/[0.03] border border-white/8 hover:border-sky-500/25 hover:bg-sky-950/20 transition-all duration-300">
           <div className="relative z-10 flex items-center justify-center size-11 rounded-xl bg-sky-950 border border-sky-500/25 text-sky-400 shrink-0">
-            <Icon weight="bold" className="size-5" />
+            <HugeiconsIcon icon={Icon} className="size-5" />
           </div>
           <div>
             <div className="flex items-baseline gap-2 mb-1.5">

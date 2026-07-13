@@ -1,12 +1,13 @@
 import logo from "@/assets/logo.svg";
 import mockup from "@/assets/mockup.svg";
 import {
-  ChatCircleDots,
-  Package,
-  ShieldCheck,
-  Star,
-  Wrench,
-} from "@phosphor-icons/react";
+  BubbleChatIcon,
+  Package01Icon,
+  ShieldIcon,
+  StarIcon,
+  Wrench01Icon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { motion } from "motion/react";
 
 import { NavMenu } from "./components/nav-menu";
@@ -75,22 +76,29 @@ function App() {
         <section
           id="hero"
           className="relative grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] items-center gap-8 lg:gap-16 max-w-6xl w-full pt-[110px] pb-16 lg:pt-[88px] lg:pb-0 mx-auto min-h-svh px-6 sm:px-10 lg:px-8 text-white overflow-hidden">
-          <div className="grid gap-4 text-left">
-            <FadeIn as="div" delay={0.1} duration={0.5} className="mb-2">
+          <div className="grid gap-4 max-sm:text-start max-lg:text-center place-content-center">
+            <FadeIn
+              as="div"
+              delay={0.1}
+              duration={0.5}
+              className="mb-2 min-[640px]:max-lg:mx-auto max-[640px]:hidden">
               <img src={logo} alt="" className="h-8" />
             </FadeIn>
             <FadeIn
               as="h1"
               delay={0.2}
               duration={0.5}
-              className="font-regular text-[36px] leading-10 sm:text-5xl sm:leading-13.5 lg:text-[58px] lg:leading-15 tracking-[-2px] max-w-175 mx-auto lg:mx-0">
-              Assistenza Informatica a Domicilio Milano
+              className="font-regular text-[36px] leading-10 sm:text-5xl sm:leading-13.5 lg:text-[58px] lg:leading-15 tracking-[-2px] max-w-140 max-sm:max-w-120">
+              Assistenza Informatica{" "}
+              <span className="font-serif-display italic font-normal tracking-normal">
+                a Domicilio Milano
+              </span>
             </FadeIn>
             <FadeIn
               as="p"
               delay={0.3}
               duration={0.5}
-              className="text-zinc-400 text-sm sm:text-base lg:text-lg tracking-[-0.5px] max-w-120 mx-auto lg:mx-0 leading-relaxed">
+              className="text-zinc-400 text-sm sm:text-base lg:text-lg tracking-[-0.5px] max-w-120 leading-relaxed max-sm:text-start max-lg:mx-auto">
               Tecnici informatici specializzati per privati, professionisti e
               aziende. Interventi rapidi direttamente presso la tua sede a
               Milano e provincia.
@@ -98,7 +106,7 @@ function App() {
             <FadeIn
               delay={0.4}
               duration={0.5}
-              className="flex gap-3 justify-start sm:flex-wrap mt-1">
+              className="flex gap-3 justify-start sm:flex-wrap mt-1 max-sm:text-start min-[640px]:max-lg:mx-auto">
               <a
                 href="#contact"
                 onClick={(e) => {
@@ -107,7 +115,7 @@ function App() {
                     .querySelector("section#contact")
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="px-5 py-2.5 rounded-full bg-sky-600 hover:bg-sky-500 text-white text-sm font-semibold transition-colors duration-200 cursor-pointer">
+                className="px-5 py-2.5 rounded-full bg-sky-600 hover:bg-sky-500 text-white text-xs sm:text-sm font-semibold transition-colors duration-200 cursor-pointer">
                 Richiedi Intervento
               </a>
               <a
@@ -118,7 +126,7 @@ function App() {
                     .querySelector("section#services")
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="px-5 py-2.5 rounded-full bg-white/[0.07] border border-white/12 hover:bg-white/12 text-white/70 text-sm font-semibold transition-colors duration-200 cursor-pointer">
+                className="px-5 py-2.5 rounded-full bg-white/[0.07] border border-white/12 hover:bg-white/12 text-white/70 text-xs sm:text-sm font-semibold transition-colors duration-200 cursor-pointer">
                 Scopri i Servizi
               </a>
             </FadeIn>
@@ -132,10 +140,10 @@ function App() {
                     <span className="w-px h-7 bg-white/10 block mx-5 sm:mx-8" />
                   )}
                   <div className="flex flex-col items-center lg:items-start gap-0.5">
-                    <span className="text-xl sm:text-2xl font-medium text-white tracking-tight tabular-nums">
+                    <span className="text-md sm:text-2xl font-medium text-white tracking-tight tabular-nums">
                       {value}
                     </span>
-                    <span className="text-[10px] sm:text-xs text-white/40 tracking-widest uppercase">
+                    <span className="text-[10px] sm:text-xs text-white/40 tracking-widest uppercase max-sm:text-center">
                       {label}
                     </span>
                   </div>
@@ -161,9 +169,9 @@ function App() {
             <FadeIn
               delay={0.55}
               duration={0.45}
-              className="hidden sm:flex z-30 absolute top-4 lg:top-10 left-0 lg:-left-6 items-center gap-2.5 bg-black/40 backdrop-blur-xl border border-white/12 rounded-2xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.35)] whitespace-nowrap">
+              className="hidden sm:flex z-30 absolute max-sm:text-start max-lg:bottom-40 bottom-30 left-[20vw] lg:left-5 items-center gap-2.5 bg-black/40 backdrop-blur-xl border border-white/12 rounded-2xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.35)] whitespace-nowrap">
               <div className="flex items-center justify-center size-8 rounded-full bg-sky-500/20 border border-sky-500/30 text-sky-400 shrink-0">
-                <ShieldCheck weight="fill" className="size-4" />
+                <HugeiconsIcon icon={ShieldIcon} className="size-4" />
               </div>
               <div className="text-left">
                 <p className="text-xs font-medium text-white leading-tight">
@@ -186,13 +194,17 @@ function App() {
           <div className="flex flex-col gap-16">
             <div className="flex flex-col gap-5 max-w-2xl">
               <div className="flex w-fit items-center gap-1.5 p-1 px-1.5 pr-2 rounded-full bg-preset text-xs">
-                <Package weight="fill" size={16} /> Servizi Principali
+                <HugeiconsIcon icon={Package01Icon} size={16} /> Servizi
+                Principali
               </div>
               <FadeIn
                 className="text-3xl font-medium text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-1.5px]"
                 as="h2"
                 delay={0.15}>
-                Hai problemi con il computer, la rete o il server?
+                Hai problemi con il computer, la rete{" "}
+                <span className="font-serif-display italic font-normal tracking-normal">
+                  o il server?
+                </span>
               </FadeIn>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -242,13 +254,16 @@ function App() {
           <div className="flex flex-col gap-14">
             <div className="flex flex-col gap-5 max-w-2xl">
               <div className="flex w-fit items-center gap-1.5 p-1 px-1.5 pr-2 rounded-full bg-preset text-xs">
-                <Package weight="fill" size={16} /> Tutti i servizi
+                <HugeiconsIcon icon={Package01Icon} size={16} /> Tutti i servizi
               </div>
               <FadeIn
                 className="text-3xl font-medium text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-1.5px]"
                 as="h2"
                 delay={0.15}>
-                Tutti i nostri servizi
+                Tutti i nostri{" "}
+                <span className="font-serif-display italic font-normal tracking-normal">
+                  servizi
+                </span>
               </FadeIn>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -271,13 +286,16 @@ function App() {
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
               <div className="flex flex-col gap-5 max-w-lg">
                 <div className="flex w-fit items-center gap-1 p-1 px-1.5 pr-2 text-xs bg-preset rounded-full">
-                  <Star weight="fill" size={14} /> Perché Sceglierci
+                  <HugeiconsIcon icon={StarIcon} size={14} /> Perché Sceglierci
                 </div>
                 <FadeIn
                   className="text-3xl font-medium text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-1.5px]"
                   as="h2"
                   delay={0.15}>
-                  Perché noi?
+                  Perché{" "}
+                  <span className="font-serif-display italic font-normal tracking-normal">
+                    noi?
+                  </span>
                 </FadeIn>
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
@@ -318,13 +336,16 @@ function App() {
           <div className="flex flex-col gap-14">
             <div className="flex flex-col gap-5 max-w-2xl">
               <div className="flex w-fit items-center gap-1 p-1 px-1.5 pr-2 text-xs bg-preset rounded-full">
-                <Wrench weight="fill" size={14} /> Come Funziona
+                <HugeiconsIcon icon={Wrench01Icon} size={14} /> Come Funziona
               </div>
               <FadeIn
                 className="text-3xl font-medium text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-1.5px]"
                 as="h2"
                 delay={0.15}>
-                Dal contatto alla soluzione
+                Dal contatto alla{" "}
+                <span className="font-serif-display italic font-normal tracking-normal">
+                  soluzione
+                </span>
               </FadeIn>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -346,13 +367,16 @@ function App() {
             {/* Full-width heading */}
             <div className="flex flex-col gap-5">
               <div className="flex w-fit items-center gap-1 p-1 px-1.5 pr-2 text-xs bg-preset rounded-full">
-                <ChatCircleDots weight="fill" size={14} /> Contattaci
+                <HugeiconsIcon icon={BubbleChatIcon} size={14} /> Contattaci
               </div>
               <FadeIn
                 className="text-3xl font-medium text-white leading-tight lg:text-[50px] lg:leading-none tracking-[-1.5px]"
                 as="h2"
                 delay={0.15}>
-                Pronti ad aiutarti. Sempre.
+                Pronti ad aiutarti.{" "}
+                <span className="font-serif-display italic font-normal tracking-normal">
+                  Sempre.
+                </span>
               </FadeIn>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}

@@ -7,7 +7,8 @@ import {
 } from "@/components/ui/drawer";
 import { serviceCategories, services } from "@/constants";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { ArrowUpRight, Package } from "@phosphor-icons/react";
+import { ArrowUpRight01Icon, Package01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { useState } from "react";
 import {
     Dialog,
@@ -43,7 +44,7 @@ export function AllServiceSection() {
           rel="noopener noreferrer"
           className="group flex items-center gap-4 py-4 first:pt-0 last:pb-0 -mx-2 px-2 rounded-xl hover:bg-sky-950/25 transition-colors duration-200">
           <div className="flex items-center justify-center size-10 rounded-xl bg-sky-950/70 border border-sky-500/20 shrink-0">
-            <ServiceIcon weight="fill" className="size-4.5 text-sky-400" />
+            <HugeiconsIcon icon={ServiceIcon} className="size-4.5 text-sky-400" />
           </div>
           <div className="min-w-0 flex-1">
             <h4 className="text-sm font-semibold text-white/90">{title}</h4>
@@ -51,7 +52,7 @@ export function AllServiceSection() {
               {description}
             </p>
           </div>
-          <ArrowUpRight className="size-4 text-white/20 group-hover:text-sky-400 shrink-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <HugeiconsIcon icon={ArrowUpRight01Icon} className="size-4 text-white/20 group-hover:text-sky-400 shrink-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       ))}
     </div>
@@ -71,7 +72,7 @@ export function AllServiceSection() {
               onClick={() => setActiveCategory(value)}
               className="group flex flex-col items-start gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/8 hover:border-sky-500/30 hover:bg-sky-950/25 transition-all duration-200 text-left cursor-pointer">
               <div className="flex items-center justify-center size-10 rounded-xl bg-sky-950/70 border border-sky-500/20 text-sky-400 shrink-0">
-                <Package weight="fill" className="size-4.5" />
+                <HugeiconsIcon icon={Package01Icon} className="size-4.5" />
               </div>
               <div>
                 <h3 className="text-sm font-semibold text-white/85 leading-tight">

@@ -1,19 +1,20 @@
-import { CheckIcon, Clock, ShieldCheck } from "@phosphor-icons/react";
+import { Clock01Icon, ShieldIcon, Tick01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { motion } from "motion/react";
 
 const guarantees = [
   {
-    icon: ShieldCheck,
+    icon: ShieldIcon,
     title: "Preventivo chiaro, senza sorprese",
     description: "Ti diciamo sempre il costo prima di intervenire, nessun costo nascosto.",
   },
   {
-    icon: Clock,
+    icon: Clock01Icon,
     title: "Tempo di intervento < 2h",
     description: "Interveniamo rapidamente a Milano e provincia, anche in giornata.",
   },
   {
-    icon: CheckIcon,
+    icon: Tick01Icon,
     title: "Tecnici qualificati e certificati",
     description: "Ogni intervento è seguito da un tecnico con esperienza verificata.",
   },
@@ -39,7 +40,7 @@ export function PriceCard() {
             key={title}
             className="flex items-start gap-4 bg-white/[0.03] p-4 rounded-xl border border-white/8">
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-500/10 text-sky-400">
-              <Icon weight="bold" className="h-4.5 w-4.5" />
+              <HugeiconsIcon icon={Icon} className="h-4.5 w-4.5" />
             </div>
             <div>
               <p className="font-semibold text-sm text-white/85 mb-0.5">{title}</p>

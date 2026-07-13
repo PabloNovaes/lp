@@ -1,10 +1,11 @@
 import logo from "@/assets/full-logo.svg";
 import {
-    Copyright,
-    Envelope,
-    InstagramLogo,
-    WhatsappLogo,
-} from "@phosphor-icons/react";
+    CopyrightIcon,
+    InstagramIcon,
+    Mail01Icon,
+    WhatsappIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,7 +21,10 @@ export function Footer() {
 
           <div className="relative z-10 flex flex-col items-center gap-6">
             <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-semibold text-white tracking-[-1.5px] leading-tight">
-              Hai bisogno di assistenza?
+              Hai bisogno di{" "}
+              <span className="font-serif-display italic font-normal tracking-normal">
+                assistenza?
+              </span>
             </h2>
             <p className="text-white/45 text-base leading-relaxed max-w-md">
               Preventivo gratuito, senza impegno. Interveniamo a Milano e
@@ -55,7 +59,7 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-5 border-t border-white/6">
           <img src={logo} className="h-6" alt="tecnicopcadomicilio.it" />
           <div className="flex items-center gap-1.5 text-xs text-white/25 text-center">
-            <Copyright size={11} />
+            <HugeiconsIcon icon={CopyrightIcon} size={11} />
             <span>
               {currentYear} tecnicopcadomicilio.it — Assistenza Informatica a
               Domicilio Milano - P.IVA: 11610820968
@@ -69,7 +73,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
                 className="flex items-center justify-center size-8 rounded-full bg-white/4 border border-white/8 text-white/35 hover:text-white/70 hover:bg-white/8 transition-all duration-200">
-                <WhatsappLogo weight="duotone" className="size-3.5" />
+                <HugeiconsIcon icon={WhatsappIcon} className="size-3.5" />
               </a>
             </li>
             <li>
@@ -79,7 +83,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="flex items-center justify-center size-8 rounded-full bg-white/4 border border-white/8 text-white/35 hover:text-white/70 hover:bg-white/8 transition-all duration-200">
-                <InstagramLogo weight="duotone" className="size-3.5" />
+                <HugeiconsIcon icon={InstagramIcon} className="size-3.5" />
               </a>
             </li>
             <li>
@@ -89,7 +93,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Email"
                 className="flex items-center justify-center size-8 rounded-full bg-white/4 border border-white/8 text-white/35 hover:text-white/70 hover:bg-white/8 transition-all duration-200">
-                <Envelope weight="duotone" className="size-3.5" />
+                <HugeiconsIcon icon={Mail01Icon} className="size-3.5" />
               </a>
             </li>
           </ul>

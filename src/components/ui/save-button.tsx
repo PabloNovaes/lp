@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils"
+import { Loading03Icon, Tick01Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
 import { AnimatePresence, motion, type HTMLMotionProps } from "framer-motion"
-import { Check, Loader } from "lucide-react"
 import { useEffect, useState } from "react"
 
 export type SaveState = "initial" | "loading" | "success"
@@ -79,13 +80,13 @@ export function SaveButton({ state = "initial", onSave, className, content, succ
                         >
                             {currentState === "loading" && (
                                 <>
-                                    <Loader className="w-[15px] h-[15px] animate-spin text-white" />
+                                    <HugeiconsIcon icon={Loading03Icon} className="w-[15px] h-[15px] animate-spin text-white" />
                                 </>
                             )}
                             {currentState === "success" && (
                                 <>
                                     <div className="p-0.5 bg-white/25 rounded-[99px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.16)] border border-white/25 justify-center items-center gap-1.5 flex overflow-hidden">
-                                        <Check className="w-3.5 h-3.5 text-white" />
+                                        <HugeiconsIcon icon={Tick01Icon} className="w-3.5 h-3.5 text-white" />
                                     </div>
                                     <span className="text-sm text-white">{successContent}</span>
                                 </>

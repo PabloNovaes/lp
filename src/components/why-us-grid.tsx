@@ -1,20 +1,20 @@
 import { cn } from "@/lib/utils";
 import {
-  Buildings,
-  Clock,
-  Cpu,
-  Database,
-  Headset,
-  Receipt,
-  ShieldCheck,
-  SlidersHorizontal,
-  type Icon,
-} from "@phosphor-icons/react";
+  Building02Icon,
+  Clock01Icon,
+  CpuIcon,
+  Database01Icon,
+  HeadphonesIcon,
+  Invoice01Icon,
+  PreferenceHorizontalIcon,
+  ShieldIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
 
 interface Tile {
-  icon: Icon;
+  icon: IconSvgElement;
   title: string;
   description: string;
   span?: string;
@@ -24,7 +24,7 @@ interface Tile {
 
 const tiles: Tile[] = [
   {
-    icon: ShieldCheck,
+    icon: ShieldIcon,
     title: "Tecnici qualificati e certificati",
     description:
       "Ogni intervento è seguito da personale con esperienza verificata su hardware, software, reti e sistemi aziendali.",
@@ -38,7 +38,7 @@ const tiles: Tile[] = [
         <div className="absolute -right-6 -top-6 w-40 rotate-6 rounded-xl border border-sky-500/20 bg-white/[0.04] backdrop-blur-sm p-3 shadow-lg shadow-sky-950/40 pointer-events-none transition-transform duration-500 group-hover:rotate-3 group-hover:-translate-y-1">
           <div className="flex items-center gap-2 mb-2.5">
             <div className="flex items-center justify-center size-6 rounded-md bg-sky-500/20">
-              <ShieldCheck weight="fill" className="size-3.5 text-sky-400" />
+              <HugeiconsIcon icon={ShieldIcon} className="size-3.5 text-sky-400" />
             </div>
             <div className="h-1.5 w-14 rounded-full bg-white/15" />
           </div>
@@ -49,7 +49,7 @@ const tiles: Tile[] = [
     ),
   },
   {
-    icon: Receipt,
+    icon: Invoice01Icon,
     title: "Preventivi chiari e trasparenti",
     description:
       "Sai sempre il costo prima di iniziare, senza sorprese in fattura.",
@@ -58,7 +58,7 @@ const tiles: Tile[] = [
     decoration: (
       <>
         <div className="absolute right-8 top-3 w-24 rotate-[-8deg] rounded-lg border border-sky-500/15 bg-sky-950/40 backdrop-blur-sm p-2.5 shadow-lg shadow-sky-950/40 pointer-events-none transition-transform duration-500 group-hover:rotate-[-4deg]">
-          <Receipt weight="duotone" className="size-4 text-sky-400 mb-1.5" />
+          <HugeiconsIcon icon={Invoice01Icon} className="size-4 text-sky-400 mb-1.5" />
           <div className="h-1 w-full rounded-full bg-white/10 mb-1" />
           <div className="h-1 w-2/3 rounded-full bg-white/10" />
         </div>
@@ -71,37 +71,37 @@ const tiles: Tile[] = [
     ),
   },
   {
-    icon: Clock,
+    icon: Clock01Icon,
     title: "Intervento rapido a domicilio",
     description:
       "Rispondiamo entro poche ore dalla chiamata, senza farti perdere tempo prezioso.",
   },
   {
-    icon: Buildings,
+    icon: Building02Icon,
     title: "Assistenza per privati e aziende",
     description:
       "Stessa cura e competenza, sia per un singolo PC che per l'intero ufficio.",
   },
   {
-    icon: Cpu,
+    icon: CpuIcon,
     title: "Supporto hardware e software",
     description:
       "Diagnosi dei guasti, riparazioni e installazione o configurazione dei programmi.",
   },
   {
-    icon: Database,
+    icon: Database01Icon,
     title: "Esperienza su server, NAS e reti",
     description:
       "Gestiamo infrastrutture di rete, storage condiviso e backup con affidabilità.",
   },
   {
-    icon: Headset,
+    icon: HeadphonesIcon,
     title: "Assistenza remota e in presenza",
     description:
       "Ti aiutiamo da remoto quando possibile, oppure veniamo direttamente da te.",
   },
   {
-    icon: SlidersHorizontal,
+    icon: PreferenceHorizontalIcon,
     title: "Soluzioni personalizzate",
     description:
       "Ogni proposta è calibrata sulle tue esigenze reali, mai un pacchetto standard.",
@@ -156,8 +156,8 @@ export function WhyUsGrid() {
 
             {/* faint icon watermark for non-featured tiles */}
             {!featured && (
-              <Icon
-                weight="duotone"
+              <HugeiconsIcon
+                icon={Icon}
                 className="pointer-events-none absolute -right-3 -bottom-3 size-20 text-sky-500/[0.07] rotate-[-8deg] transition-transform duration-500 group-hover:rotate-0 group-hover:scale-110"
               />
             )}
@@ -170,8 +170,8 @@ export function WhyUsGrid() {
                     ? "size-12 bg-sky-500/15 border border-sky-500/30 text-sky-400 group-hover:bg-sky-500/20"
                     : "size-9 bg-sky-950/70 border border-sky-500/20 text-sky-400 group-hover:border-sky-500/35",
                 )}>
-                <Icon
-                  weight={featured ? "duotone" : "bold"}
+                <HugeiconsIcon
+                  icon={Icon}
                   className={featured ? "size-6" : "size-4"}
                 />
               </div>

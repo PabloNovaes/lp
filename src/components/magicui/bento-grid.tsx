@@ -1,9 +1,9 @@
-import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { useRef, type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { Icon } from "@phosphor-icons/react";
+import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 import { motion, useInView, type HTMLMotionProps, type Variants } from "motion/react";
 
 interface BentoGridProps extends HTMLMotionProps<"div"> {
@@ -15,7 +15,7 @@ interface BentoCardProps extends HTMLMotionProps<"div"> {
   name: string;
   className?: string;
   background?: React.ReactNode;
-  Icon?: Icon;
+  Icon?: IconSvgElement;
   imageIcon?: string;
   description: string;
   href: string;
@@ -96,7 +96,7 @@ const BentoCard = ({
         )}
         {Icon && (
           <div className="relative grid place-content-center w-10 mb-2">
-            <Icon weight="fill" className="relative z-10 text-blue-400 h-11 w-11 origin-left transform-gpu transition-all duration-300 ease-in-out group-hover:scale-75 bg-sky-950/60 border border-sky-500/20 rounded-xl p-2.5" />
+            <HugeiconsIcon icon={Icon} className="relative z-10 text-blue-400 h-11 w-11 origin-left transform-gpu transition-all duration-300 ease-in-out group-hover:scale-75 bg-sky-950/60 border border-sky-500/20 rounded-xl p-2.5" />
           </div>
         )}
         <h3 className="text-lg font-semibold text-neutral-700 dark:text-neutral-300">
@@ -113,7 +113,7 @@ const BentoCard = ({
         <Button variant="ghost" asChild size="sm" className="pointer-events-auto rounded-full">
           <a href={href}>
             {cta}
-            <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />
+            <HugeiconsIcon icon={ArrowRight01Icon} className="ms-2 h-4 w-4 rtl:rotate-180" />
           </a>
         </Button>
       </div>
